@@ -6,6 +6,7 @@ builder.InitialCatalog = "Northwind";
 builder.MultipleActiveResultSets = true;
 builder.Encrypt = true;
 builder.ConnectTimeout = 10;
+builder.TrustServerCertificate = true; // This line solve error in the login proccess
 
 WriteLine("Connect to:");
 WriteLine("1 - SQL Server on local machine");
