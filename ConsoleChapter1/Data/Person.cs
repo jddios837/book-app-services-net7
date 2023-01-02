@@ -9,7 +9,19 @@ public class Person
     /// Value for Name
     /// </summary>
     public string? Name { get; set; }
+    
+    /// <summary>
+    /// Example to use raw string literals
+    /// </summary>
+    public string Xml = """
+            <person age="50">
+                <first_name>Mark</first_name>
+            </person>
+            """;
 
+    
+    
+    
     /// <summary>
     /// Return a complete name
     /// </summary>
@@ -27,6 +39,14 @@ public class Person
         };
 
         // return $"Complete Name {this.Name}";
+        // Number $ represent number of {} to use
+        string Json = $$$"""
+                    {
+                        "firstName": "{{{text}}}",
+                        
+                    }
+                    """;
+        
         return text;
     }
 }
