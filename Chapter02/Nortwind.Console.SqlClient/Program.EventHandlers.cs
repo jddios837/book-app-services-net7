@@ -1,8 +1,6 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 
-// namespace Nortwind.Console.SqlClient;
-
 partial class Program
 {
     static void Connection_StateChange(object sender, StateChangeEventArgs e)

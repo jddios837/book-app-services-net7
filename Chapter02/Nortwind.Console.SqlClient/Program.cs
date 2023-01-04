@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 SqlConnectionStringBuilder builder = new();
 builder.InitialCatalog = "Northwind";
@@ -89,6 +90,26 @@ catch (SqlException ex)
 {
     WriteLine($"SQL exception: {ex.Message}");
     return;
+}
+
+// Executing a Query
+SqlCommand cmd = connection.CreateCommand();
+
+cmd.CommandType = CommandType.Text;
+cmd.CommandText = "SELECT ProductId, ProductName, UnitPrice FROM Products";
+
+SqlDataReader r = cmd.ExecuteReader();
+
+Console.WriteLine("------------------------------------------------------------");
+Console.WriteLine("| {0, 5} | {1, -35} | {2, 8} |", "Id", "Name", "Price");
+Console.WriteLine("------------------------------------------------------------");
+
+while (r.Read())
+{
+    Console.WriteLine("| {0, 5} | {1, -35} | {2,8:C} |",
+        r.GetInt32("ProductId"),
+        r.GetString("ProductName"),
+        r.GetDecimal("UnitPrice"));
 }
 
 connection.Close();
