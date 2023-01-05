@@ -80,7 +80,8 @@ try
 {
     WriteLine("Opening connection. Please wait up to {0} seconds...", builder.ConnectTimeout);
     WriteLine();
-    connection.Open();
+    // connection.Open();
+    await connection.OpenAsync();
 
     WriteLine($"SQL Server version: {connection.ServerVersion}");
 
@@ -95,21 +96,38 @@ catch (SqlException ex)
 // Executing a Query
 SqlCommand cmd = connection.CreateCommand();
 
-cmd.CommandType = CommandType.Text;
-cmd.CommandText = "SELECT ProductId, ProductName, UnitPrice FROM Products";
+Console.Write("Enter a unit price: ");
+string? priceText = ReadLine();
 
-SqlDataReader r = cmd.ExecuteReader();
+if (!decimal.TryParse(priceText, out decimal price))
+{
+    WriteLine("You must enter a valid unit price.");
+    return;
+}
+
+cmd.CommandType = CommandType.Text;
+cmd.CommandText = "SELECT ProductId, ProductName, UnitPrice FROM Products"
+    + " WHERE UnitPrice > @price";
+cmd.Parameters.AddWithValue("price", price);
+
+// SqlDataReader r = cmd.ExecuteReader();
+SqlDataReader r = await cmd.ExecuteReaderAsync();
 
 Console.WriteLine("------------------------------------------------------------");
 Console.WriteLine("| {0, 5} | {1, -35} | {2, 8} |", "Id", "Name", "Price");
 Console.WriteLine("------------------------------------------------------------");
 
-while (r.Read())
+// while (r.Read())
+while (await r.ReadAsync())
 {
     Console.WriteLine("| {0, 5} | {1, -35} | {2,8:C} |",
-        r.GetInt32("ProductId"),
-        r.GetString("ProductName"),
-        r.GetDecimal("UnitPrice"));
+        await r.GetFieldValueAsync<int>("ProductId"),
+        await r.GetFieldValueAsync<string>("ProductName"),
+        await r.GetFieldValueAsync<decimal>("UnitPrice"));
+        // r.GetInt32("ProductId"),
+        // r.GetString("ProductName"),
+        // r.GetDecimal("UnitPrice"));
 }
 
-connection.Close();
+await r.CloseAsync();
+await connection.CloseAsync();
