@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleChapter1", "ConsoleC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nortwind.Console.SqlClient", "Chapter02\Nortwind.Console.SqlClient\Nortwind.Console.SqlClient.csproj", "{111B1871-B4C4-4DA3-8D97-A787150A284C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Norwind.Console.EFCore", "Norwind.Console.EFCore\Norwind.Console.EFCore.csproj", "{F50133F6-2192-4600-8FA5-D0B0C9A60B00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{111B1871-B4C4-4DA3-8D97-A787150A284C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{111B1871-B4C4-4DA3-8D97-A787150A284C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{111B1871-B4C4-4DA3-8D97-A787150A284C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50133F6-2192-4600-8FA5-D0B0C9A60B00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50133F6-2192-4600-8FA5-D0B0C9A60B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50133F6-2192-4600-8FA5-D0B0C9A60B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50133F6-2192-4600-8FA5-D0B0C9A60B00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
