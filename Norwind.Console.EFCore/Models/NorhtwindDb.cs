@@ -15,62 +15,62 @@ public partial class NorhtwindDb : DbContext
     {
     }
 
-    public virtual DbSet<AlphabeticalListOfProduct> AlphabeticalListOfProducts { get; set; }
+    public virtual DbSet<AlphabeticalListOfProduct> AlphabeticalListOfProducts { get; set; } = null!;
 
-    public virtual DbSet<Category> Categories { get; set; }
+    public virtual DbSet<Category> Categories { get; set; } = null!;
 
-    public virtual DbSet<CategorySalesFor1997> CategorySalesFor1997s { get; set; }
+    public virtual DbSet<CategorySalesFor1997> CategorySalesFor1997s { get; set; } = null!;
 
-    public virtual DbSet<CurrentProductList> CurrentProductLists { get; set; }
+    public virtual DbSet<CurrentProductList> CurrentProductLists { get; set; } = null!;
 
-    public virtual DbSet<Customer> Customers { get; set; }
+    public virtual DbSet<Customer> Customers { get; set; } = null!;
 
-    public virtual DbSet<CustomerAndSuppliersByCity> CustomerAndSuppliersByCities { get; set; }
+    public virtual DbSet<CustomerAndSuppliersByCity> CustomerAndSuppliersByCities { get; set; } = null!;
 
-    public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
+    public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; } = null!;
 
-    public virtual DbSet<Employee> Employees { get; set; }
+    public virtual DbSet<Employee> Employees { get; set; } = null!;
 
-    public virtual DbSet<Invoice> Invoices { get; set; }
+    public virtual DbSet<Invoice> Invoices { get; set; } = null!;
 
-    public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<Order> Orders { get; set; } = null!;
 
-    public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+    public virtual DbSet<OrderDetail> OrderDetails { get; set; } = null!;
 
-    public virtual DbSet<OrderDetailsExtended> OrderDetailsExtendeds { get; set; }
+    public virtual DbSet<OrderDetailsExtended> OrderDetailsExtendeds { get; set; } = null!;
 
-    public virtual DbSet<OrderSubtotal> OrderSubtotals { get; set; }
+    public virtual DbSet<OrderSubtotal> OrderSubtotals { get; set; } = null!;
 
-    public virtual DbSet<OrdersQry> OrdersQries { get; set; }
+    public virtual DbSet<OrdersQry> OrdersQries { get; set; } = null!;
 
-    public virtual DbSet<Product> Products { get; set; }
+    public virtual DbSet<Product> Products { get; set; } = null!;
 
-    public virtual DbSet<ProductSalesFor1997> ProductSalesFor1997s { get; set; }
+    public virtual DbSet<ProductSalesFor1997> ProductSalesFor1997s { get; set; } = null!;
 
-    public virtual DbSet<ProductsAboveAveragePrice> ProductsAboveAveragePrices { get; set; }
+    public virtual DbSet<ProductsAboveAveragePrice> ProductsAboveAveragePrices { get; set; } = null!;
 
-    public virtual DbSet<ProductsByCategory> ProductsByCategories { get; set; }
+    public virtual DbSet<ProductsByCategory> ProductsByCategories { get; set; } = null!;
 
-    public virtual DbSet<QuarterlyOrder> QuarterlyOrders { get; set; }
+    public virtual DbSet<QuarterlyOrder> QuarterlyOrders { get; set; } = null!;
 
-    public virtual DbSet<Region> Regions { get; set; }
+    public virtual DbSet<Region> Regions { get; set; } = null!;
 
-    public virtual DbSet<SalesByCategory> SalesByCategories { get; set; }
+    public virtual DbSet<SalesByCategory> SalesByCategories { get; set; } = null!;
 
-    public virtual DbSet<SalesTotalsByAmount> SalesTotalsByAmounts { get; set; }
+    public virtual DbSet<SalesTotalsByAmount> SalesTotalsByAmounts { get; set; } = null!;
 
-    public virtual DbSet<Shipper> Shippers { get; set; }
+    public virtual DbSet<Shipper> Shippers { get; set; } = null!;
 
-    public virtual DbSet<SummaryOfSalesByQuarter> SummaryOfSalesByQuarters { get; set; }
+    public virtual DbSet<SummaryOfSalesByQuarter> SummaryOfSalesByQuarters { get; set; } = null!;
 
-    public virtual DbSet<SummaryOfSalesByYear> SummaryOfSalesByYears { get; set; }
+    public virtual DbSet<SummaryOfSalesByYear> SummaryOfSalesByYears { get; set; } = null!;
 
-    public virtual DbSet<Supplier> Suppliers { get; set; }
+    public virtual DbSet<Supplier> Suppliers { get; set; } = null!;
 
-    public virtual DbSet<Territory> Territories { get; set; }
+    public virtual DbSet<Territory> Territories { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=Northwind;TrustServerCertificate=true;User Id=sa;Password=Tetra714217#;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
