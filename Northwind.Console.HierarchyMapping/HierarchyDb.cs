@@ -15,9 +15,18 @@ public class HierarchyDb : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Person>().UseTphMappingStrategy();
+        modelBuilder.Entity<Person>()
+            // .UseTphMappingStrategy();
+            // .UseTptMappingStrategy();
+            .UseTpcMappingStrategy()
+            .Property(person => person.Id)
+            .HasDefaultValueSql("NEXT VALUE FOR [PersonIds]");
 
+        modelBuilder.HasSequence<int>("PersonIds", builder =>
+        {
+            builder.StartsAt(4);
+        });    
+            
         Student p1 = new() { Id = 1, Name = "Roman Roy", Subject = "History" };
         Employee p2 = new()
         {

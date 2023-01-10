@@ -8,6 +8,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Norwind.Console.EFCore", "N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Console.HierarchyMapping", "Northwind.Console.HierarchyMapping\Northwind.Console.HierarchyMapping.csproj", "{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter02", "Chapter02", "{220083C8-CB47-4E28-B721-C69A659269D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter01", "Chapter01", "{DF964075-E416-45CA-ACE1-1ADB0E90961D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Common.EntityModels.SqlServer", "Chapter02\Northwind.Common.EntityModels.SqlServer\Northwind.Common.EntityModels.SqlServer.csproj", "{C2960CF9-745C-4C56-98ED-E7BB39EA8543}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +36,16 @@ Global
 		{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2960CF9-745C-4C56-98ED-E7BB39EA8543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2960CF9-745C-4C56-98ED-E7BB39EA8543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2960CF9-745C-4C56-98ED-E7BB39EA8543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2960CF9-745C-4C56-98ED-E7BB39EA8543}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5} = {220083C8-CB47-4E28-B721-C69A659269D8}
+		{111B1871-B4C4-4DA3-8D97-A787150A284C} = {220083C8-CB47-4E28-B721-C69A659269D8}
+		{F50133F6-2192-4600-8FA5-D0B0C9A60B00} = {220083C8-CB47-4E28-B721-C69A659269D8}
+		{E6D1EB7C-1B0C-44E8-B3B1-1606C5F3A33A} = {DF964075-E416-45CA-ACE1-1ADB0E90961D}
+		{C2960CF9-745C-4C56-98ED-E7BB39EA8543} = {220083C8-CB47-4E28-B721-C69A659269D8}
 	EndGlobalSection
 EndGlobal
