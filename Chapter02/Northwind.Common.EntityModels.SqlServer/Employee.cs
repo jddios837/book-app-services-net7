@@ -8,7 +8,7 @@ namespace Packt.Shared;
 
 [Index("LastName", Name = "LastName")]
 [Index("PostalCode", Name = "PostalCode")]
-public partial class Employee
+public partial class Employee : IHasLastRefreshed
 {
     [Key]
     [Column("EmployeeID")]
@@ -77,4 +77,7 @@ public partial class Employee
     [ForeignKey("EmployeeId")]
     [InverseProperty("Employees")]
     public virtual ICollection<Territory> Territories { get; } = new List<Territory>();
+
+    [NotMapped]
+    public DateTimeOffset LastRefreshed { get; set; }
 }
