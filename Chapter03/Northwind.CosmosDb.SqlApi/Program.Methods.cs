@@ -1,6 +1,10 @@
 ﻿using System.Net;
 using Microsoft.Azure.Cosmos;
 
+using Packt.Shared;
+using Northwind.CosmosDb.SqlApi.items;
+using Microsoft.EntityFrameworkCore;
+
 namespace Northwind.CosmosDb.SqlApi
 {
     partial class Program
@@ -78,5 +82,107 @@ namespace Northwind.CosmosDb.SqlApi
             }
         }
 
+        static async Task CreateProductItems()
+        {
+            SectionTitle("Creating product items");
+
+            double totalCharge = 0.0;
+
+            try
+            {
+                using (CosmosClient client = new(accountEndpoint: endPointUri, authKeyOrResourceToken: primaryKey))
+                {
+                    Container container = client.GetContainer("Northwind", containerId: "Products");
+
+                    using (NorthwindContext db = new())
+                    {
+                        ProductCosmos[] products = db.Products
+                            .Include(p => p.Category)
+                            .Include(p => p.Supplier)
+                            .Where(p => p.Category != null && p.Supplier != null)
+                            .Select(p => new ProductCosmos
+                            {
+                                id = p.ProductId.ToString(),
+                                productId = p.ProductId.ToString(),
+                                productName = p.ProductName,
+                                quantityPerUnit = p.QuantityPerUnit,
+                                category = new CategoryCosmos
+                                {
+                                    categoryId = p.Category!.CategoryId,
+                                    categoryName = p.Category!.CategoryName,
+                                    descrition = p.Category!.Description
+                                },
+                                supplier = new SupplierCosmos
+                                {
+                                    supplierId = p.Supplier!.SupplierId,
+                                    companyName = p.Supplier!.CompanyName,
+                                    contactName = p.Supplier!.ContactName,
+                                    contactTitle = p.Supplier!.ContactTitle,
+                                    address = p.Supplier!.Address,
+                                    city = p.Supplier!.City,
+                                    region = p.Supplier!.Region,
+                                    postalCode = p.Supplier!.PostalCode,
+                                    country = p.Supplier!.Country,
+                                    phone = p.Supplier!.Phone,
+                                    fax = p.Supplier!.Fax,
+                                    homePage = p.Supplier!.HomePage
+                                },
+                                unitPrice = p.UnitPrice,
+                                unitsInStock = p.UnitsInStock,
+                                unitsOnOrder = p.UnitsOnOrder,
+                                reorderLevel = p.ReorderLevel,
+                                discontinued = p.Discontinued,
+
+                            })
+                            .ToArray();
+
+                        foreach (var p in products)
+                        {
+                            try
+                            {
+                                ItemResponse<ProductCosmos> productResponse =
+                                    await container.ReadItemAsync<ProductCosmos>(
+                                        id: p.id,
+                                        new PartitionKey(p.productId));
+                                WriteLine("Item with id: {0} exists Query consumed {1}",
+                                    productResponse.Resource.id,
+                                    productResponse.RequestCharge);
+
+                                totalCharge += productResponse.RequestCharge;
+                            }
+                            catch (CosmosException ex)
+                                when (ex.StatusCode == HttpStatusCode.NotFound)
+                            {
+                                ItemResponse<ProductCosmos> productResponse = await container.CreateItemAsync(p);
+                                WriteLine("Created item with id: {0}, Insert consumed {1}",
+                                    productResponse.Resource.id,
+                                    productResponse.RequestCharge);
+
+                                totalCharge += productResponse.RequestCharge;
+                            }
+                            catch (Exception ex)
+                            {
+                                WriteLine("Error: {0}, says {1}",
+                                    ex.GetType(),
+                                    ex.Message);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                WriteLine("Error: {0}", ex.Message);
+                WriteLine("Hint: Make sure the Azure Cosmos Emulator is running.");
+            }
+            catch (Exception ex)
+            {
+                WriteLine("Error: {0}, says {1}",
+                    ex.GetType(),
+                    ex.Message);
+            }
+            
+            WriteLine("Total request charge: {0:N2} RUs", totalCharge);
+        }
     }
 }
