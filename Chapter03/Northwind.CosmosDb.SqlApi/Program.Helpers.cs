@@ -1,14 +1,15 @@
-﻿namespace Northwind.CosmosDb.SqlApi;
-
-partial class Program
+﻿namespace Northwind.CosmosDb.SqlApi
 {
-    static void SectionTitle(string title)
+    partial class Program
     {
-        ConsoleColor previousColor = ForegroundColor;
-        ForegroundColor = ConsoleColor.DarkYellow;
-        WriteLine("*");
-        WriteLine($"* {title}");
-        WriteLine("*");
-        ForegroundColor = previousColor;
+        static void SectionTitle(string title)
+        {
+            ConsoleColor previousColor = ForegroundColor;
+            ForegroundColor = ConsoleColor.DarkYellow;
+            WriteLine("*");
+            WriteLine($"* {title}");
+            WriteLine("*");
+            ForegroundColor = previousColor;
+        }
     }
 }

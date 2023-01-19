@@ -1,81 +1,82 @@
 ﻿using System.Net;
 using Microsoft.Azure.Cosmos;
 
-namespace Northwind.CosmosDb.SqlApi;
-
-partial class Program
+namespace Northwind.CosmosDb.SqlApi
 {
-    private static string endPointUri = "https://localhost:8081/";
-    private static string primaryKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
-
-    static async Task CreateCosmosResource()
+    partial class Program
     {
-        SectionTitle("Creating Cosmos Resource");
+        private static string endPointUri = "https://localhost:8081/";
+        private static string primaryKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
 
-        try
+        static async Task CreateCosmosResource()
         {
-            using (CosmosClient client = new(accountEndpoint: endPointUri, authKeyOrResourceToken: primaryKey))
+            SectionTitle("Creating Cosmos Resource");
+
+            try
             {
-                DatabaseResponse dbResponse = await client
-                    .CreateDatabaseIfNotExistsAsync("Northwind", throughput: 400);
-
-                string status = dbResponse.StatusCode switch
+                using (CosmosClient client = new(accountEndpoint: endPointUri, authKeyOrResourceToken: primaryKey))
                 {
-                    HttpStatusCode.OK => "exists",
-                    HttpStatusCode.Created => "created",
-                    _ => "unknown"
-                };
+                    DatabaseResponse dbResponse = await client
+                        .CreateDatabaseIfNotExistsAsync("Northwind", throughput: 400);
 
-                WriteLine("Database Id: {0}, Status: {1}", arg0: dbResponse.Database.Id, arg1: status);
+                    string status = dbResponse.StatusCode switch
+                    {
+                        HttpStatusCode.OK => "exists",
+                        HttpStatusCode.Created => "created",
+                        _ => "unknown"
+                    };
 
-                IndexingPolicy indexingPolicy = new()
-                {
-                    IndexingMode = IndexingMode.Consistent,
-                    Automatic = true,
-                    IncludedPaths = { new IncludedPath { Path = "/*" } }
-                };
+                    WriteLine("Database Id: {0}, Status: {1}", arg0: dbResponse.Database.Id, arg1: status);
 
-                ContainerProperties containerProperties = new("Products",
-                    partitionKeyPath: "/productId")
-                {
-                    IndexingPolicy = indexingPolicy
-                };
+                    IndexingPolicy indexingPolicy = new()
+                    {
+                        IndexingMode = IndexingMode.Consistent,
+                        Automatic = true,
+                        IncludedPaths = { new IncludedPath { Path = "/*" } }
+                    };
 
-                ContainerResponse containerResponse = await dbResponse.Database
-                    .CreateContainerIfNotExistsAsync(containerProperties: containerProperties, throughput: 1000);
+                    ContainerProperties containerProperties = new("Products",
+                        partitionKeyPath: "/productId")
+                    {
+                        IndexingPolicy = indexingPolicy
+                    };
 
-                status = dbResponse.StatusCode switch
-                {
-                    HttpStatusCode.OK => "exists",
-                    HttpStatusCode.Created => "created",
-                    _ => "unknown"
-                };
+                    ContainerResponse containerResponse = await dbResponse.Database
+                        .CreateContainerIfNotExistsAsync(containerProperties: containerProperties, throughput: 1000);
 
-                WriteLine("Container Id: {0}, Status: {1}",
-                    arg0: containerResponse.Container.Id, arg1: status);
+                    status = dbResponse.StatusCode switch
+                    {
+                        HttpStatusCode.OK => "exists",
+                        HttpStatusCode.Created => "created",
+                        _ => "unknown"
+                    };
 
-                Container container = containerResponse.Container;
+                    WriteLine("Container Id: {0}, Status: {1}",
+                        arg0: containerResponse.Container.Id, arg1: status);
 
-                ContainerProperties properties = await container.ReadContainerAsync();
+                    Container container = containerResponse.Container;
 
-                WriteLine($" PartitionKeyPath: {properties.PartitionKeyPath}");
-                WriteLine($" LastModified: {properties.LastModified}");
-                WriteLine($" PartitionKeyPath: {properties.IndexingPolicy.IndexingMode}");
-                WriteLine($" IndexingPolicy.IndexingMode: {properties.IndexingPolicy.IndexingMode}");
-                WriteLine($" IndexingPolicy.IncludePaths: {0}",
-                    string.Join(",", properties.IndexingPolicy.IncludedPaths.Select(p => p.Path)));
-                WriteLine($" IndexingPolicy: {properties.IndexingPolicy}");
+                    ContainerProperties properties = await container.ReadContainerAsync();
+
+                    WriteLine($" PartitionKeyPath: {properties.PartitionKeyPath}");
+                    WriteLine($" LastModified: {properties.LastModified}");
+                    WriteLine($" PartitionKeyPath: {properties.IndexingPolicy.IndexingMode}");
+                    WriteLine($" IndexingPolicy.IndexingMode: {properties.IndexingPolicy.IndexingMode}");
+                    WriteLine($" IndexingPolicy.IncludePaths: {0}",
+                        string.Join(",", properties.IndexingPolicy.IncludedPaths.Select(p => p.Path)));
+                    WriteLine($" IndexingPolicy: {properties.IndexingPolicy}");
+                }
+            }
+            catch (HttpRequestException e)
+            {
+                WriteLine($"Error: {0}", e.Message);
+                WriteLine("Hint: make sure the azure cosmos emulator is running.");
+            }
+            catch (Exception e)
+            {
+                WriteLine("Error {0} says {1}", e.GetType(), e.Message);
             }
         }
-        catch (HttpRequestException e)
-        {
-            WriteLine($"Error: {0}", e.Message);
-            WriteLine("Hint: make sure the azure cosmos emulator is running.");
-        }
-        catch (Exception e)
-        {
-            WriteLine("Error {0} says {1}", e.GetType(), e.Message);
-        }
-    }
 
+    }
 }

@@ -1,3 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-await CreateCosmosResource();
+namespace Northwind.CosmosDb.SqlApi
+{
+    partial class Program
+    { 
+        static async Task Main(string[] args)
+        {
+            await CreateCosmosResource();
+        }
+    }
+}
