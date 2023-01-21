@@ -184,5 +184,60 @@ namespace Northwind.CosmosDb.SqlApi
             
             WriteLine("Total request charge: {0:N2} RUs", totalCharge);
         }
+
+        static async Task ListProductItems(string sqlText = "SELECT * FROM c")
+        {
+            SectionTitle("Listing product items");
+
+            try
+            {
+                using (CosmosClient client = new(accountEndpoint: endPointUri, authKeyOrResourceToken: primaryKey))
+                {
+                    Container container = client.GetContainer("Northwind", containerId: "Products");
+                    
+                    WriteLine("Running query {0}", sqlText);
+
+                    QueryDefinition query = new(sqlText);
+
+                    using FeedIterator<ProductCosmos> resultsIterator = container
+                        .GetItemQueryIterator<ProductCosmos>(query);
+
+                    if (!resultsIterator.HasMoreResults)
+                    {
+                        WriteLine("No results found");
+                    }
+
+                    while (resultsIterator.HasMoreResults)
+                    {
+                        FeedResponse<ProductCosmos> products =
+                            await resultsIterator.ReadNextAsync();
+                        
+                        WriteLine("Status code: {0}, Request charge: {1} RUs",
+                            products.StatusCode, products.RequestCharge);
+                        
+                        WriteLine("{0} Products found.", products.Count);
+
+                        foreach (var product in products)
+                        {
+                            WriteLine("id: {0}, productName: {1}, unitPrice: {2}",
+                                product.id, product.productName, product.unitPrice);
+                        }
+                    }
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                WriteLine("Error: {0}", ex.Message);
+                WriteLine("Hint: Make sure the Azure Cosmos Emulator is running.");
+            }
+            catch (Exception ex)
+            {
+                WriteLine("Error: {0}, says {1}",
+                    ex.GetType(),
+                    ex.Message);
+            }
+        }
+        
+        
     }
 }
