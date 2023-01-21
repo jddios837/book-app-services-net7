@@ -7,8 +7,9 @@ namespace Northwind.CosmosDb.SqlApi
         static async Task Main(string[] args)
         {
             //await CreateCosmosResource();
-            //await CreateProductItems();
-            await ListProductItems();
+            await CreateProductItems();
+            await ListProductItems("SELECT p.id, p.productName, p.unitPrice FROM p WHERE p.category.categoryName = 'Beverages'");
+            //await DeletedProductItems();
         }
     }
 }

@@ -237,7 +237,60 @@ namespace Northwind.CosmosDb.SqlApi
                     ex.Message);
             }
         }
-        
-        
+
+        static async Task DeletedProductItems()
+        {
+            SectionTitle("Deleting product items");
+            double totalCharge = 0.0;
+            
+            try
+            {
+                using (CosmosClient client = new(accountEndpoint: endPointUri, authKeyOrResourceToken: primaryKey))
+                {
+                    Container container = client.GetContainer("Northwind", "Products");
+
+                    string sqlText = "SELECT * FROM c";
+
+                    QueryDefinition query = new(sqlText);
+
+                    using FeedIterator<ProductCosmos> resultsIterator = container
+                        .GetItemQueryIterator<ProductCosmos>();
+
+                    while (resultsIterator.HasMoreResults)
+                    {
+                        FeedResponse<ProductCosmos> products =
+                            await resultsIterator.ReadNextAsync();
+
+                        foreach (var product in products)
+                        {
+                            WriteLine("Delete id: {0}, productName: {1}",
+                                product.id, product.productName);
+
+                            ItemResponse<ProductCosmos> response =
+                                await container.DeleteItemAsync<ProductCosmos>(
+                                    id: product.id, partitionKey: new(product.id));
+                            
+                            WriteLine("Status code: {0}, Request charge: {1} RUs",
+                                response.StatusCode, response.RequestCharge);
+
+                            totalCharge += response.RequestCharge;
+                        }   
+                    }
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                WriteLine("Error: {0}", ex.Message);
+                WriteLine("Hint: Make sure the Azure Cosmos Emulator is running.");
+            }
+            catch (Exception ex)
+            {
+                WriteLine("Error: {0}, says {1}",
+                    ex.GetType(),
+                    ex.Message);
+            }
+            
+            WriteLine("Total requests charge: {0:N2} RUs");
+        }
     }
 }
