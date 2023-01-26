@@ -22,7 +22,7 @@ partial class Program
         ForegroundColor = previousColor;
     }
     
-    static void OutputThreadInfo(string title)
+    static void OutputThreadInfo()
     {
         Thread t = Thread.CurrentThread;
         ConsoleColor previousColor = ForegroundColor;
