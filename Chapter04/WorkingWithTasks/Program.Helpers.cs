@@ -11,7 +11,7 @@ partial class Program
         WriteLine("*");
         ForegroundColor = previousColor;
     }
-    
+
     static void TaskTitle(string title)
     {
         ConsoleColor previousColor = ForegroundColor;
@@ -21,7 +21,7 @@ partial class Program
         WriteLine("*");
         ForegroundColor = previousColor;
     }
-    
+
     static void OutputThreadInfo()
     {
         Thread t = Thread.CurrentThread;
@@ -31,5 +31,24 @@ partial class Program
             t.ManagedThreadId, t.Priority, t.IsBackground, t.Name ?? "null");
 
         ForegroundColor = previousColor;
+    }
+
+    static decimal CallWebService()
+    {
+        TaskTitle("Starting call to web service...");
+        OutputThreadInfo();
+        Thread.Sleep((new Random()).Next(2000, 4000));
+        TaskTitle("Finished call to web service.");
+        return 89.99M;
+    }
+
+    static string CallStoredProcedure(decimal amount)
+    {
+        TaskTitle("Starting call to stored procedure...");
+        OutputThreadInfo();
+        Thread.Sleep((new Random()).Next(2000, 4000));
+        TaskTitle("Finished call to stored procedure.");
+
+        return $"12 products cost more than {amount:C}";
     }
 }
