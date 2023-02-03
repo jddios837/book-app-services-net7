@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidation.Models", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidation.Validators", "Chapter05\FluentValidation.Validators\FluentValidation.Validators.csproj", "{6E2AF4F4-A65B-4EF9-AAB9-AB7A25FC7F8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidation.App", "Chapter05\FluentValidation.App\FluentValidation.App.csproj", "{D220169A-C94F-4C34-B6E4-6E8EC74597B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,10 @@ Global
 		{6E2AF4F4-A65B-4EF9-AAB9-AB7A25FC7F8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E2AF4F4-A65B-4EF9-AAB9-AB7A25FC7F8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E2AF4F4-A65B-4EF9-AAB9-AB7A25FC7F8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D220169A-C94F-4C34-B6E4-6E8EC74597B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D220169A-C94F-4C34-B6E4-6E8EC74597B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D220169A-C94F-4C34-B6E4-6E8EC74597B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D220169A-C94F-4C34-B6E4-6E8EC74597B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5} = {220083C8-CB47-4E28-B721-C69A659269D8}
@@ -123,5 +129,6 @@ Global
 		{76BEA33A-0FA8-429C-991A-68A63B04A00D} = {66EBB4C6-1E9E-4BBD-8A8D-639B0D32F029}
 		{8454D2AC-6E4D-4D16-B3E7-5E5536D51EDA} = {66EBB4C6-1E9E-4BBD-8A8D-639B0D32F029}
 		{6E2AF4F4-A65B-4EF9-AAB9-AB7A25FC7F8C} = {66EBB4C6-1E9E-4BBD-8A8D-639B0D32F029}
+		{D220169A-C94F-4C34-B6E4-6E8EC74597B8} = {66EBB4C6-1E9E-4BBD-8A8D-639B0D32F029}
 	EndGlobalSection
 EndGlobal
