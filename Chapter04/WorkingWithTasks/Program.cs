@@ -35,12 +35,19 @@ partial class Program
         //
         
         //MULTI TASK ONE FOLLOWED FOR ANOTHER
-        Task<string> taskServiceThenSProc = Task.Factory
-            .StartNew(CallWebService)
-            .ContinueWith(previousTask => CallStoredProcedure(previousTask.Result));
+        // Task<string> taskServiceThenSProc = Task.Factory
+        //     .StartNew(CallWebService)
+        //     .ContinueWith(previousTask => CallStoredProcedure(previousTask.Result));
+        //
+        // WriteLine($"Result: {taskServiceThenSProc.Result}");
+        //
+        // WriteLine($"{timer.ElapsedMilliseconds: #, ##0}ms elapsed.");
         
-        WriteLine($"Result: {taskServiceThenSProc.Result}");
+        //NESTED AND CHILD TASKS
+        SectionTitle("Nested and Child Tasks");
 
-        WriteLine($"{timer.ElapsedMilliseconds: #, ##0}ms elapsed.");
+        Task outerTask = Task.Factory.StartNew(OuterMethod);
+        outerTask.Wait();
+        WriteLine("Console app is stopping");
     }
 }
