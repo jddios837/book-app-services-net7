@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidation.Validators
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidation.App", "Chapter05\FluentValidation.App\FluentValidation.App.csproj", "{D220169A-C94F-4C34-B6E4-6E8EC74597B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronizingResourceAccess", "Chapter04\SynchronizingResourceAccess\SynchronizingResourceAccess.csproj", "{AA00C284-BC13-4B12-81E1-528AD15ABB35}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -112,6 +114,10 @@ Global
 		{D220169A-C94F-4C34-B6E4-6E8EC74597B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D220169A-C94F-4C34-B6E4-6E8EC74597B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D220169A-C94F-4C34-B6E4-6E8EC74597B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA00C284-BC13-4B12-81E1-528AD15ABB35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA00C284-BC13-4B12-81E1-528AD15ABB35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA00C284-BC13-4B12-81E1-528AD15ABB35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA00C284-BC13-4B12-81E1-528AD15ABB35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5} = {220083C8-CB47-4E28-B721-C69A659269D8}
@@ -130,5 +136,6 @@ Global
 		{8454D2AC-6E4D-4D16-B3E7-5E5536D51EDA} = {66EBB4C6-1E9E-4BBD-8A8D-639B0D32F029}
 		{6E2AF4F4-A65B-4EF9-AAB9-AB7A25FC7F8C} = {66EBB4C6-1E9E-4BBD-8A8D-639B0D32F029}
 		{D220169A-C94F-4C34-B6E4-6E8EC74597B8} = {66EBB4C6-1E9E-4BBD-8A8D-639B0D32F029}
+		{AA00C284-BC13-4B12-81E1-528AD15ABB35} = {4D36A84C-367F-4BAF-91DA-9B09F6D0A1D0}
 	EndGlobalSection
 EndGlobal
