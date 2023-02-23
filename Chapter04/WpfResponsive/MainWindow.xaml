@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <StackPanel>
+            <Button Name="GetEmployeesSyncButton" Click="GetEmployeesSyncButton_OnClick">
+                Get Employees Synchronously
+            </Button>
+            <Button Name="GetEmployeesAsyncButton" Click="GetEmployeesAsyncButton_OnClick">
+                Get Employees Asynchronously
+            </Button>
+            <TextBox HorizontalAlignment="Stretch" Text="Type in here"></TextBox>
+            <ListBox Name="EmployeesListBox" Height="350"></ListBox>
+        </StackPanel>
     </Grid>
 </Window>
