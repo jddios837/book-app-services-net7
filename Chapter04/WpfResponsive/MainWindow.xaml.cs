@@ -66,9 +66,36 @@ namespace WpfResponsive
             EmployeesListBox.Items.Add($"Sync: {timer.ElapsedMilliseconds:N0}");
         }
 
-        private void GetEmployeesAsyncButton_OnClick(object sender, RoutedEventArgs e)
+        private async void GetEmployeesAsyncButton_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Stopwatch timer = Stopwatch.StartNew();
+            await using SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                await connection.OpenAsync();
+
+                SqlCommand command = new(sql, connection);
+                SqlDataReader reader = await command.ExecuteReaderAsync();
+
+                while (await reader.ReadAsync())
+                {
+                    var employee = string.Format("{0}: {1} {2}",
+                        await reader.GetFieldValueAsync<int>(0),
+                        await reader.GetFieldValueAsync<string>(1),
+                        await reader.GetFieldValueAsync<string>(2));
+
+                    EmployeesListBox.Items.Add(employee);
+                }
+
+                await reader.CloseAsync();
+                await connection.CloseAsync();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+
+            EmployeesListBox.Items.Add($"Async: {timer.ElapsedMilliseconds:N0}ms");
         }
     }
 }
