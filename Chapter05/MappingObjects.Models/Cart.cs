@@ -1,6 +1,5 @@
 ﻿namespace MappingObjects.Models;
 
-public class Cart
-{
-    
-}
+public record class Cart(
+    Customer Customer,
+    List<LineItem> Items);
