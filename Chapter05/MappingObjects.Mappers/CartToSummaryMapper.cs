@@ -1,7 +1,7 @@
 ﻿using AutoMapper; // MapperConfiguration
 using AutoMapper.Internal; // Internal() extension method
 using Packt.Entities; // Cart
-using Packt.ViewModels; // Sumamary
+using Packt.ViewModels; // Summary
 
 
 namespace MappingObjects.Mappers;
