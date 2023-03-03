@@ -1,4 +1,4 @@
-﻿namespace MappingObjects.Models;
+﻿namespace Packt.Entities;
 
 public record class LineItem(
     string ProductName, 

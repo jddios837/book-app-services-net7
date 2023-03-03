@@ -1,4 +1,4 @@
-﻿namespace MappingObjects.Models;
+﻿namespace Packt.ViewModels;
 
 public class Summary
 {
