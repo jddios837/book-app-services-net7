@@ -1,6 +1,7 @@
 ﻿using GeneratingPdf.Models;
 using GeneratingPdf.Document;
 using QuestPDF.Fluent;
+using QuestPDF.Previewer;
 
 string filename = "catalog.pdf";
 
@@ -20,7 +21,9 @@ Catalog model = new()
 };
 
 CatalogDocument document = new(model);
-document.GeneratePdf(filename);
+// document.GeneratePdf(filename);
+// use the following invocation
+document.ShowInPreviewer();
 
 WriteLine($"PDF catalog has been created: {filename}");
 

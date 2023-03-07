@@ -19,7 +19,7 @@ public class CatalogDocument : IDocument
     {
         container.Page(page =>
         {
-            page.Margin(50 /* 50 points */);
+            page.Margin(40 /* 50 points */);
 
             page.Header()
                 .Height(100).Background(Colors.Grey.Lighten1)
