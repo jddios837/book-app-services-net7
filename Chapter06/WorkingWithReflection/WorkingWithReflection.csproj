@@ -5,6 +5,9 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>7.0.1</Version>
+        <Company>JDD Solution</Company>
+        <RootNamespace>WorkingWithReflection</RootNamespace>
     </PropertyGroup>
     
     <ItemGroup>

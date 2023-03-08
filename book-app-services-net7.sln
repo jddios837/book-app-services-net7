@@ -70,7 +70,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratingPdf.App", "Chapte
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter06", "Chapter06", "{7D00AACF-CF67-4A65-83C4-0646E67D7562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithReflextion", "Chapter06\WorkingWithReflextion\WorkingWithReflextion.csproj", "{78574C37-2509-4C85-BD3F-9BAF85AEF449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithReflection", "Chapter06\WorkingWithReflection\WorkingWithReflection.csproj", "{78574C37-2509-4C85-BD3F-9BAF85AEF449}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
