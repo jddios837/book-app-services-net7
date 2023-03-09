@@ -88,3 +88,35 @@ for (int year = 2022; year <= 2028; year++)
 
 WriteLine("Is Christmas daylight saving time? {0}", xmas.IsDaylightSavingTime());
 WriteLine("Is July 4 daylight saving time? {0}", independenceDay.IsDaylightSavingTime());
+
+SectionTitle("Localizing the DayOfWeek enum");
+
+CultureInfo previousCulture = Thread.CurrentThread.CurrentCulture;
+
+// Explicitly set culture to Danish (Denmark)
+Thread.CurrentThread.CurrentCulture =
+    CultureInfo.GetCultureInfo("da-DK");
+    
+WriteLine("Culture: {0}, DayOfWeek: {1}",
+    Thread.CurrentThread.CurrentCulture.NativeName, DateTime.Now.DayOfWeek);    
+    
+WriteLine("Culture: {0}, DayOfWeek: {1:dddd}",
+    Thread.CurrentThread.CurrentCulture.NativeName, DateTime.Now);     
+
+WriteLine("Culture: {0}, DayOfWeek: {1}",
+    Thread.CurrentThread.CurrentCulture.NativeName, 
+    DateTimeFormatInfo.CurrentInfo.GetDayName(DateTime.Now.DayOfWeek));
+
+Thread.CurrentThread.CurrentCulture = previousCulture;
+
+
+SectionTitle("Working with only a date or a time");
+
+DateOnly coronation = new(year: 2023, month: 5, day: 6);
+WriteLine($"The King's Coronation is on {coronation.ToLongDateString()}.");
+
+TimeOnly starts = new(hour: 11, minute: 30);
+WriteLine($"The King's Coronation start at {starts}.");
+
+DateTime calendarEntry = coronation.ToDateTime(starts);
+WriteLine($"Add to your calendar: {calendarEntry}.");
