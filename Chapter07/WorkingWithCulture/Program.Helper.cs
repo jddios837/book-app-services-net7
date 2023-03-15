@@ -27,6 +27,19 @@
         WriteLine("1er day of the year: {0}", new DateTime(year: DateTime.Today.Year, month: 1, day: 1)
             .ToString("D", globalization));
         
+        WriteLine("Number group separator: {0}", globalization.NumberFormat.NumberDecimalSeparator);
+        
+        WriteLine("Number decimal separator: {0}", globalization.NumberFormat.NumberDecimalSeparator);
+
+        RegionInfo region = new RegionInfo(globalization.LCID);
+        
+        WriteLine("Currency symbol: {0}", region.CurrencySymbol);
+        WriteLine("Currency name: {0}", region.CurrencyEnglishName);
+        
+        WriteLine("Is metric: {0}", region.IsMetric);
+        
+        WriteLine();
+        
         ForegroundColor = previousColor;
     }
 }
