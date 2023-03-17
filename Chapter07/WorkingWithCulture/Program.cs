@@ -1,4 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Microsoft.Extensions.Hosting;  // IHost, Host
+// AddLocalization, AddTransient<T>
+using Microsoft.Extensions.DependencyInjection;
+
+using IHost host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices(services =>
+    {
+        services.AddLocalization(options =>
+        {
+            options.ResourcesPath = "Resources";
+        });
+
+        services.AddTransient<PacktResources>();
+    })
+    .Build();
+
 OutputEncoding = System.Text.Encoding.Unicode;
 
 OutputCultures("Current Culture");
@@ -46,14 +62,16 @@ CultureInfo.CurrentUICulture = ci;
 
 OutputCultures("After Changing the current culture");
 
-Write("Enter your name: ");
+PacktResources resources = host.Services.GetRequiredService<PacktResources>();
+
+Write(resources.GetYourNamePrompt());
 string? name = ReadLine();
 if (string.IsNullOrEmpty(name))
 {
     name = "Bob";
 }
 
-Write("Enter your date of birth: ");
+Write(resources.GetEnterYourDobPrompt());
 string? dobText = ReadLine();
 if (string.IsNullOrEmpty(dobText))
 {
@@ -68,7 +86,7 @@ if (string.IsNullOrEmpty(dobText))
     };
 }
 
-Write("Enter your salary: ");
+Write(resources.GetEnterYourSalaryPrompt());
 string? salaryText = ReadLine();
 if (string.IsNullOrEmpty(salaryText))
 {
@@ -79,6 +97,10 @@ DateTime dob = DateTime.Parse(dobText);
 int minutes = (int)DateTime.Today.Subtract(dob).TotalMinutes;
 decimal salary = decimal.Parse(salaryText);
 
-WriteLine("{0} was born on a {1:dddd}. {0} is {2:N0} minutes old. {0} earns {3:C}.", name, dob, minutes, salary);
+WriteLine(resources.GetPersonDetails(name, dob, minutes, salary));
 
 // salary.ToString("N1", CultureInfo.InvariantCulture);
+long n = 35231;
+string prueba = n.ToString();
+WriteLine(prueba.ToString().Select(c => c.ToString()).Reverse().ToArray());
+WriteLine(prueba);
