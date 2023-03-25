@@ -31,7 +31,7 @@ public static class Protector
             
             time.Stop();
             
-            WriteLine("{0:N0 milliseconds} to generate key and IV.", time.ElapsedMilliseconds);
+            WriteLine("{0:N0} milliseconds to generate key and IV.", time.ElapsedMilliseconds);
             
             WriteLine("Encryption algorithm: {0}-{1}, {2} mode with {3} padding.", "AES", aes.KeySize, aes.Mode, aes.Padding);
 
