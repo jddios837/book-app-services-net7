@@ -11,7 +11,52 @@ public static class Protector
     private static readonly byte[] salt = Encoding.Unicode.GetBytes("7BANANAS");
     
     private static readonly int iterations = 150_000;
+
+    private static Dictionary<string, User> Users = new();
+
+    public static User Register(string username, string password)
+    {
+        RandomNumberGenerator rng = RandomNumberGenerator.Create();
+        byte[] saltBytes = new byte[16];
+        rng.GetBytes(saltBytes);
+        string saltText = ToBase64String(saltBytes);
+        
+        string saltedHashedPassword = SaltAndHashPassword(password, saltText);
+        
+        User user = new(username, saltText, saltedHashedPassword);
+        Users.Add(user.Name, user);
+
+        return user;
+    }
     
+    // check a user's password that is stored  in the private dictionary Users
+    public static bool CheckPassword(string username, string password)
+    {
+        if(!Users.ContainsKey(username))
+        {
+            return false;
+        }
+
+        User u = Users[username];
+        return CheckPassword(password, u.Salt, u.SaltedHashedPassword);
+    }
+    
+    // check a password against a salt and hashed password
+    public static bool CheckPassword(string password, string saltText, string saltedHashedPassword)
+    {
+        string saltedHashedPassword2 = SaltAndHashPassword(password, saltText);
+        return (saltedHashedPassword == saltedHashedPassword2);
+    }
+    
+    private static string SaltAndHashPassword(string password, string saltText)
+    {
+        using (SHA256 sha = SHA256.Create())
+        {
+            string saltedPassword = password + saltText;
+            return ToBase64String(sha.ComputeHash(Encoding.Unicode.GetBytes(saltedPassword)));
+        }
+    }
+
     public static string Encrypt(string plainText, string password)
     {
         byte[] encryptedBytes;
