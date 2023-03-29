@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
-
 using static System.Convert;
 
 namespace Packt.Shared;
@@ -28,6 +27,8 @@ public static class Protector
 
         return user;
     }
+
+    public static string? PublicKey;
     
     // check a user's password that is stored  in the private dictionary Users
     public static bool CheckPassword(string username, string password)
@@ -132,5 +133,38 @@ public static class Protector
             }
         }
         return Encoding.Unicode.GetString(plainBytes);
+    }
+
+    public static string GenerateSignature(string data)
+    {
+        byte[] dataBytes = Encoding.Unicode.GetBytes(data);
+        SHA256 sha = SHA256.Create();
+        byte[] hashedData = sha.ComputeHash(dataBytes);
+        RSA rsa = RSA.Create();
+        
+        PublicKey = rsa.ToXmlString(false); // exclude private key
+        
+        return ToBase64String(rsa.SignHash(hashedData, 
+            HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1));
+    }
+
+    public static bool ValidateSignature(string data, string signature)
+    {
+        if (PublicKey == null)
+        {
+            return false;
+        }
+        
+        byte[] dataBytes = Encoding.Unicode.GetBytes(data);
+        SHA256 sha = SHA256.Create();
+        
+        byte[] hashedData = sha.ComputeHash(dataBytes);
+        byte[] signatureBytes = FromBase64String(signature);
+        
+        RSA rsa = RSA.Create();
+        rsa.FromXmlString(PublicKey);
+        
+        return rsa.VerifyHash(hashedData, signatureBytes, 
+            HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
     }
 }
