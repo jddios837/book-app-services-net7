@@ -167,4 +167,12 @@ public static class Protector
         return rsa.VerifyHash(hashedData, signatureBytes, 
             HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
     }
+    
+    public static byte[] GetRandomKeyOrIV(int size)
+    {
+        RandomNumberGenerator rng = RandomNumberGenerator.Create();
+        byte[] data = new byte[size];
+        rng.GetBytes(data);
+        return data;
+    }
 }
