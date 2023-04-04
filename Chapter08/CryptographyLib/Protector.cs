@@ -2,6 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using static System.Convert;
+using System.Security.Principal;
 
 namespace Packt.Shared;
 
@@ -13,7 +14,7 @@ public static class Protector
 
     private static Dictionary<string, User> Users = new();
 
-    public static User Register(string username, string password)
+    public static User Register(string username, string password, string[]? roles = null)
     {
         RandomNumberGenerator rng = RandomNumberGenerator.Create();
         byte[] saltBytes = new byte[16];
@@ -22,7 +23,7 @@ public static class Protector
         
         string saltedHashedPassword = SaltAndHashPassword(password, saltText);
         
-        User user = new(username, saltText, saltedHashedPassword);
+        User user = new(username, saltText, saltedHashedPassword, roles);
         Users.Add(user.Name, user);
 
         return user;
@@ -174,5 +175,17 @@ public static class Protector
         byte[] data = new byte[size];
         rng.GetBytes(data);
         return data;
+    }
+
+    public static void LogIn(string username, string password)
+    {
+        if (CheckPassword(username, password))
+        {
+            GenericIdentity gi = new(name: username, type: "PackAuth");
+            
+            GenericPrincipal gp = new(identity: gi, roles: Users[username].Roles);
+            
+            Thread.CurrentPrincipal = gp;
+        }
     }
 }
