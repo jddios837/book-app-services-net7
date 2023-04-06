@@ -41,4 +41,31 @@ app.MapGet("api/products", ([FromServices] NorthwindContext db, [FromQuery] int?
     })
     .Produces<Product[]>(StatusCodes.Status200OK);
 
+app.MapGet("api/products/outofstock", ([FromServices] NorthwindContext db) => 
+    db.Products.Where(product => (product.UnitsInStock == 0) && (!product.Discontinued)))
+    .WithName("GetProductsOutOfStock")
+    .WithOpenApi()
+    .Produces<Product[]>(StatusCodes.Status200OK);
+
+app.MapGet("api/products/discontinued", ([FromServices] NorthwindContext db) => 
+        db.Products.Where(product => product.Discontinued))
+    .WithName("GetProductsDiscontinued")
+    .WithOpenApi()
+    .Produces<Product[]>(StatusCodes.Status200OK);
+
+app.MapGet("api/products/{id:int}", async Task<Results<Ok<Product>, NotFound>> (
+    [FromServices] NorthwindContext db, [FromRoute] int id) => await db.Products.FindAsync(id) is Product product ?
+        TypedResults.Ok(product) : TypedResults.NotFound())
+    .WithName("GetProductById")
+    .WithOpenApi()
+    .Produces<Product>(StatusCodes.Status200OK)
+    .Produces(StatusCodes.Status404NotFound);
+
+app.MapGet("api/products/{name}", (
+        [FromServices] NorthwindContext db, [FromRoute] string name) =>
+            db.Products.Where(p => p.ProductName.Contains(name)))
+    .WithName("GetProductsByName")
+    .WithOpenApi()
+    .Produces<Product[]>(StatusCodes.Status200OK);
+
 app.Run();
