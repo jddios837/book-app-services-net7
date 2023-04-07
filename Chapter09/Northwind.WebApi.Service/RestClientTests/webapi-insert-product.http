@@ -1,0 +1,14 @@
+﻿POST http://localhost:5173/api/products/
+Content-Type: application/json
+
+{
+  "productName": "Test Product",
+  "supplierId": 7,
+  "categoryId": 6,
+  "quantityPerUnit": "10 boxes x 20 bags",
+  "unitPrice": 24.99,
+  "unitsInStock": 0,
+  "unitsOnOrder": 20,
+  "reorderLevel": 10,
+  "discontinued": false
+}

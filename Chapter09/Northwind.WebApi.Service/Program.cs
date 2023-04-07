@@ -68,4 +68,52 @@ app.MapGet("api/products/{name}", (
     .WithOpenApi()
     .Produces<Product[]>(StatusCodes.Status200OK);
 
+app.MapPost("api/products", async ([FromBody] Product product, [FromServices] NorthwindContext db) =>
+    {
+        db.Products.Add(product);
+        await db.SaveChangesAsync();
+        return Results.Created($"api/products/{product.ProductId}", product);
+    })
+    .WithOpenApi()
+    .Produces<Product>(StatusCodes.Status201Created);
+
+app.MapPut("api/products/{id:int}",
+    async ([FromRoute] int id, [FromBody] Product product, [FromServices] NorthwindContext db) =>
+    {
+        Product? foundProduct = await db.Products.FindAsync(id);
+
+        if (foundProduct is null) return Results.NotFound();
+        
+        foundProduct.ProductName = product.ProductName;
+        foundProduct.SupplierId = product.SupplierId;
+        foundProduct.CategoryId = product.CategoryId;
+        foundProduct.QuantityPerUnit = product.QuantityPerUnit;
+        foundProduct.UnitPrice = product.UnitPrice;
+        foundProduct.UnitsInStock = product.UnitsInStock;
+        foundProduct.UnitsOnOrder = product.UnitsOnOrder;
+        foundProduct.ReorderLevel = product.ReorderLevel;
+        foundProduct.Discontinued = product.Discontinued;
+
+        await db.SaveChangesAsync();
+        
+        return Results.NoContent();
+    }).WithOpenApi()
+    .Produces(StatusCodes.Status204NoContent)
+    .Produces(StatusCodes.Status404NotFound);
+
+app.MapDelete("api/products/{id:int}", async (
+        [FromRoute] int id, 
+        [FromServices] NorthwindContext db) =>
+    {
+        Product? foundProduct = await db.Products.FindAsync(id);
+
+        if (foundProduct is null) return Results.NotFound();
+
+        db.Products.Remove(foundProduct);
+        await db.SaveChangesAsync();
+        return Results.NoContent();
+    }).WithOpenApi()
+    .Produces(StatusCodes.Status204NoContent)
+    .Produces(StatusCodes.Status404NotFound);
+
 app.Run();
