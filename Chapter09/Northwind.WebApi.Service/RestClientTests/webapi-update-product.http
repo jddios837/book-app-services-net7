@@ -1,0 +1,14 @@
+PUT http://localhost:5173/api/products/77
+Content-Type: application/json
+
+{
+  "productName": "New Product Name",
+  "supplierId": 7,
+  "categoryId": 6,
+  "quantityPerUnit": "10 boxes x 20 bags",
+  "unitPrice": 44.99,
+  "unitsInStock": 50,
+  "unitsOnOrder": 20,
+  "reorderLevel": 10,
+  "discontinued": false
+}

@@ -1,12 +1,21 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OpenApi;
+using Microsoft.AspNetCore.HttpLogging;
 using Packt.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddHttpLogging(options =>
+{
+    // Add the Origin header so it will not be redacted.
+    options.RequestHeaders.Add("Origin");
+    
+    // By default, the response body is not included.
+    options.LoggingFields = HttpLoggingFields.All;
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -22,8 +31,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseHttpLogging();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello World!")
+    .ExcludeFromDescription();
 
 int pageSize = 10;
 
