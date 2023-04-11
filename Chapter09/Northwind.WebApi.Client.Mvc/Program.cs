@@ -1,7 +1,14 @@
+using System.Net.Http.Headers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient("Northwind.WebApi.Service", client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7084/");
+    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json", 1.0));
+});
 
 var app = builder.Build();
 
