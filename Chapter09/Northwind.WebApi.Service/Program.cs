@@ -5,7 +5,15 @@ using Microsoft.AspNetCore.HttpLogging;
 using Packt.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
-
+string northwindMvc = "Northwind.Mvc.Policy";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: northwindMvc, policy =>
+    {
+        policy.WithOrigins("https://localhost:7233");
+        policy.WithOrigins("http://localhost:5231/");
+    });
+});
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddHttpLogging(options =>
@@ -32,6 +40,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseHttpLogging();
+// app.UseCors(policyName: northwindMvc);
+app.UseCors();
 
 app.MapGet("/", () => "Hello World!")
     .ExcludeFromDescription();
@@ -50,7 +60,8 @@ app.MapGet("api/products", ([FromServices] NorthwindContext db, [FromQuery] int?
         operation.Summary = "Gets products in stock that are not discontinued";
         return operation;
     })
-    .Produces<Product[]>(StatusCodes.Status200OK);
+    .Produces<Product[]>(StatusCodes.Status200OK)
+    .RequireCors(policyName: northwindMvc);
 
 app.MapGet("api/products/outofstock", ([FromServices] NorthwindContext db) => 
     db.Products.Where(product => (product.UnitsInStock == 0) && (!product.Discontinued)))
@@ -77,7 +88,8 @@ app.MapGet("api/products/{name}", (
             db.Products.Where(p => p.ProductName.Contains(name)))
     .WithName("GetProductsByName")
     .WithOpenApi()
-    .Produces<Product[]>(StatusCodes.Status200OK);
+    .Produces<Product[]>(StatusCodes.Status200OK)
+    .RequireCors(policyName: northwindMvc);
 
 app.MapPost("api/products", async ([FromBody] Product product, [FromServices] NorthwindContext db) =>
     {
