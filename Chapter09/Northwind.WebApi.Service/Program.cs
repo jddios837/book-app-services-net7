@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.AspNetCore.HttpLogging;
 using Packt.Shared;
+using AspNetCoreRateLimit;
 
+var usingRateLimiting = false;
 var builder = WebApplication.CreateBuilder(args);
 string northwindMvc = "Northwind.Mvc.Policy";
 builder.Services.AddCors(options =>
@@ -14,12 +16,35 @@ builder.Services.AddCors(options =>
         policy.WithOrigins("http://localhost:5231/");
     });
 });
+
+// Configure the rate limiting middleware.
+if (!usingRateLimiting)
+{
+    // Add services to store rate limit counters and rules
+    builder.Services.AddMemoryCache();
+    builder.Services.AddInMemoryRateLimiting();
+    
+    // load default rate limit options from appsettings.json
+    builder.Services.Configure<ClientRateLimitOptions>(builder.Configuration.GetSection("ClientRateLimiting"));
+    
+    // load client-specific policies from appsettings.json
+    builder.Services.Configure<ClientRateLimitPolicies>(
+        builder.Configuration.GetSection("ClientRateLimitPolicies"));
+    
+    // register the configuration
+    builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+}
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddHttpLogging(options =>
 {
     // Add the Origin header so it will not be redacted.
     options.RequestHeaders.Add("Origin");
+    
+    // Add the rate limit headers so they will not be redacted.
+    options.RequestHeaders.Add("X-Client-Id");
+    options.ResponseHeaders.Add("Retry-After");
     
     // By default, the response body is not included.
     options.LoggingFields = HttpLoggingFields.All;
@@ -36,6 +61,14 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+if (!usingRateLimiting)
+{
+    using var scope = app.Services.CreateScope();
+    var clientPolicyStore = scope.ServiceProvider.GetRequiredService<IClientPolicyStore>();
+        
+    await clientPolicyStore.SeedAsync();
 }
 
 app.UseHttpsRedirection();
