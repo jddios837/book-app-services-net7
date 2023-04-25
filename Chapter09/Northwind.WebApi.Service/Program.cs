@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.HttpLogging;
 using Packt.Shared;
 using AspNetCoreRateLimit;
 
-var usingRateLimiting = false;
+var usingRateLimiting = true;
 var builder = WebApplication.CreateBuilder(args);
 string northwindMvc = "Northwind.Mvc.Policy";
 builder.Services.AddCors(options =>
@@ -73,6 +73,10 @@ if (!usingRateLimiting)
 
 app.UseHttpsRedirection();
 app.UseHttpLogging();
+if (!usingRateLimiting)
+{
+    app.UseClientRateLimiting();
+}
 // app.UseCors(policyName: northwindMvc);
 app.UseCors();
 
