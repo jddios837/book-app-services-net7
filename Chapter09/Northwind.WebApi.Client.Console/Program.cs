@@ -53,6 +53,14 @@ while (true)
                 previousColor = ForegroundColor;
                 ForegroundColor = ConsoleColor.DarkBlue;
                 WriteLine($"{(int)response.StatusCode}: {await response.Content.ReadAsStringAsync()}");
+
+                string retryAfter = response.Headers.GetValues("Retry-After").ToArray()[0];
+
+                if (int.TryParse(retryAfter, out waitFor))
+                {
+                    WriteLine($"Retry after (waitFor) seconds.");
+                }
+
                 ForegroundColor = previousColor;
             }
         }

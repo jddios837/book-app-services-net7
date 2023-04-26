@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.OpenApi;
 using Microsoft.AspNetCore.HttpLogging;
 using Packt.Shared;
 using AspNetCoreRateLimit;
+using Microsoft.AspNetCore.RateLimiting;
+using System.Threading.RateLimiting;
 
-var usingRateLimiting = true;
+var useMicrosoftRateLimiting = true;
 var builder = WebApplication.CreateBuilder(args);
 string northwindMvc = "Northwind.Mvc.Policy";
 builder.Services.AddCors(options =>
@@ -18,7 +20,7 @@ builder.Services.AddCors(options =>
 });
 
 // Configure the rate limiting middleware.
-if (!usingRateLimiting)
+if (!useMicrosoftRateLimiting)
 {
     // Add services to store rate limit counters and rules
     builder.Services.AddMemoryCache();
@@ -63,17 +65,33 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-if (!usingRateLimiting)
+if (!useMicrosoftRateLimiting)
 {
-    using var scope = app.Services.CreateScope();
-    var clientPolicyStore = scope.ServiceProvider.GetRequiredService<IClientPolicyStore>();
-        
-    await clientPolicyStore.SeedAsync();
+    using (IServiceScope scope = app.Services.CreateScope())
+    {
+        IClientPolicyStore clientPolicyStore = scope.ServiceProvider.GetRequiredService<IClientPolicyStore>();
+        await clientPolicyStore.SeedAsync();
+    }
+}
+
+if (useMicrosoftRateLimiting)
+{
+    RateLimiterOptions rateLimiterOptions = new();
+    
+    rateLimiterOptions.AddFixedWindowLimiter(policyName: "fixed5per10seconds", options =>
+    {
+        options.PermitLimit = 5;
+        options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        options.QueueLimit = 2;
+        options.Window = TimeSpan.FromSeconds(10);
+    });
+
+    app.UseRateLimiter(rateLimiterOptions);
 }
 
 app.UseHttpsRedirection();
 app.UseHttpLogging();
-if (!usingRateLimiting)
+if (!useMicrosoftRateLimiting)
 {
     app.UseClientRateLimiting();
 }
@@ -98,7 +116,8 @@ app.MapGet("api/products", ([FromServices] NorthwindContext db, [FromQuery] int?
         return operation;
     })
     .Produces<Product[]>(StatusCodes.Status200OK)
-    .RequireCors(policyName: northwindMvc);
+    .RequireRateLimiting("fixed5per10seconds");
+    // .RequireCors(policyName: northwindMvc);
 
 app.MapGet("api/products/outofstock", ([FromServices] NorthwindContext db) => 
     db.Products.Where(product => (product.UnitsInStock == 0) && (!product.Discontinued)))
