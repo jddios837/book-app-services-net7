@@ -6,6 +6,7 @@ using Packt.Shared;
 using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.RateLimiting;
 using System.Threading.RateLimiting;
+using System.Security.Claims; // ClaimsPrincipal
 
 var useMicrosoftRateLimiting = true;
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,10 @@ builder.Services.AddCors(options =>
         policy.WithOrigins("http://localhost:5231/");
     });
 });
+
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication(defaultScheme: "Bearer")
+    .AddJwtBearer();
 
 // Configure the rate limiting middleware.
 if (!useMicrosoftRateLimiting)
@@ -57,6 +62,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddNorthwindContext();
 
 var app = builder.Build();
+
+app.UseAuthorization();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -100,6 +107,10 @@ app.UseCors();
 
 app.MapGet("/", () => "Hello World!")
     .ExcludeFromDescription();
+
+app.MapGet("/secret", (ClaimsPrincipal user) => 
+ $"Welcome, {user.Identity?.Name ?? "secure user"}. The secret ingredient is love.")
+ .RequireAuthorization();
 
 int pageSize = 10;
 
