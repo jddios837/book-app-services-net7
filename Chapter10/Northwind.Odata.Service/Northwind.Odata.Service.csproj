@@ -17,8 +17,4 @@
       <ProjectReference Include="..\..\Chapter02\Northwind.Common.DataContext.SqlServer\Northwind.Common.DataContext.SqlServer.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Controllers" />
-    </ItemGroup>
-
 </Project>
