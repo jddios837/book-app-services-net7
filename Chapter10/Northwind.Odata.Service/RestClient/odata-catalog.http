@@ -1,0 +1,22 @@
+﻿GET http://localhost:5258/catalog/Categories HTTP/1.1
+
+###
+GET http://localhost:5258/catalog/categories(3)
+
+###
+GET http://localhost:5258/catalog/categories/3
+
+###
+GET http://localhost:5258/catalog/categories/?$count=true
+
+###
+GET http://localhost:5258/catalog/products
+
+###
+GET http://localhost:5258/catalog/products/$count
+
+###
+GET http://localhost:5258/catalog/products(2)
+
+###
+GET http://localhost:5258/catalog/suppliers
