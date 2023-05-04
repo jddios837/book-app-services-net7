@@ -13,12 +13,14 @@ public class CategoriesController : ODataController
     {
         this._db = db;
     }
-
+    
+    [EnableQuery]
     public IActionResult Get()
     {
         return Ok(_db.Categories);
     }
 
+    [EnableQuery]
     public IActionResult Get(int key)
     {
         return Ok(_db.Categories.Where(category => category.CategoryId == key));

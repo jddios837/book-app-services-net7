@@ -10,6 +10,7 @@ builder.Services.AddControllers()
     .AddOData(options => options
         .AddRouteComponents(routePrefix: "catalog", model: GetEdmModelForCatalog())
         .AddRouteComponents(routePrefix: "ordersystem", model: GetEdmModelForOrderSystem())
+        .AddRouteComponents(routePrefix: "catalog/v{version}", model: GetEdmModelForCatalog())
         // enabled query actions
         .Select()
         .Expand()

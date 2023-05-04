@@ -1,1 +1,7 @@
 ﻿GET http://localhost:5258/catalog/Categories?$select=CategoryId, CategoryName
+
+###
+GET http://localhost:5258/catalog/v2/products(50)
+
+###
+GET http://localhost:5258/catalog/products(50)

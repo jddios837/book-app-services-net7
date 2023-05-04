@@ -14,13 +14,32 @@ public class ProductsController : ODataController
         _db = db;
     }
 
-    public IActionResult Get()
+    [EnableQuery]
+    public IActionResult Get(string version = "1")
     {
+        Console.WriteLine($"*** ProductsController version {version}");
         return Ok(_db.Products);
     }
 
-    public IActionResult Get(int key)
+    [EnableQuery]
+    public IActionResult Get(int key, string version = "1")
     {
-        return Ok(_db.Products.Where(product => product.ProductId == key));
+        Console.WriteLine($"*** ProductsController version {version}");
+
+        IQueryable<Product> products = _db.Products.Where(product => product.ProductId == key);
+
+        Product? p = products.FirstOrDefault();
+
+        if ((products is null) || (p is null))
+        {
+            return NotFound($"Product with id {key} not found");
+        }
+
+        if (version == "2")
+        {
+            p.ProductName += " version 2.0";
+        }
+
+        return Ok(p);
     }
 }
