@@ -7,7 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient(name: "Northwind.OData",
     configureClient: options =>
     {
-        options.BaseAddress = new Uri("https://localhost:5258/");
+        options.BaseAddress = new Uri("http://localhost:5258/");
         options.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json", 1.0));
     });

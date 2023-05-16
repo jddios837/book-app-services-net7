@@ -20,3 +20,6 @@ GET http://localhost:5258/catalog/products(2)
 
 ###
 GET http://localhost:5258/catalog/suppliers
+
+###
+GET http://localhost:5258/catalog/products/?$filter=startswith(ProductName,'Cha')&$select=ProductId,ProductName,UnitPrice
