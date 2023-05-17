@@ -19,4 +19,8 @@ foreach (var i in newSubSet)
 {
     Console.WriteLine($"{i}");
 }
-Console.WriteLine("Hello, World!");
+
+var getSum = (from obj in numbers
+              where obj < 5
+              select obj).Sum();
+Console.WriteLine($"Sum is: {getSum}");
