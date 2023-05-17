@@ -1,0 +1,5 @@
+﻿GET http://localhost:5258/catalog/products
+    ?$filter=contains(ProductName, 'ch') and UnitPrice lt 44.95
+    &$orderby=Supplier/Country,UnitPrice
+    &$select=ProductName,UnitPrice
+    &$expand=Supplier
