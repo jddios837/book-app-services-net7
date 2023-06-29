@@ -4,4 +4,4 @@ using Benchmarking;
 
 //Console.WriteLine("Hello, World!");
 
-BenchmarkRunner.Run<StringBenchmark>();
+BenchmarkRunner.Run<StringNullValidationBenchmark>();
