@@ -3,6 +3,8 @@ using Northwind.GraphQL;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddNorthwindContext();
+
 builder.Services
     .AddGraphQLServer()
     .RegisterDbContext<NorthwindContext>()

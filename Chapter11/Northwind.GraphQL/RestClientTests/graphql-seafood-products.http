@@ -1,0 +1,7 @@
+﻿POST http://localhost:5112/graphql
+Content-Type: application/json
+Content-Length:  90
+
+{
+  "query": "{productsInCategory(categoryId: 8){productName unitPrice}}"
+}
