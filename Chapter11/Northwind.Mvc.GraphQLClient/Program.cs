@@ -1,4 +1,14 @@
+using System.Net.Http.Headers;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient(name: "Northwind.GraphQL",
+    configureClient: options =>
+    {
+        options.BaseAddress = new Uri("https://localhost:5111/");
+        options.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/json", 1.0));
+    });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
