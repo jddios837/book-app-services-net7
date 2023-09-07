@@ -40,8 +40,7 @@ public class HomeController : Controller
             request = new(method: HttpMethod.Post, requestUri: "graphql");
             request.Content = new StringContent(content: $$$"""
             {
-                "query": "{productsInCategory(categoryId: {{{id}}}){
-            productId productName unitsInStock }}"
+                "query": "{productsInCategory(categoryId: {{{id}}}){productId productName unitsInStock }}"
             }
             """,
                 encoding: Encoding.UTF8,
