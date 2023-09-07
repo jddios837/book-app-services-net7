@@ -138,6 +138,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingBoxingUnboxing", "Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Mvc.GraphQLClient", "Chapter11\Northwind.Mvc.GraphQLClient\Northwind.Mvc.GraphQLClient.csproj", "{5E7B764B-3BDA-468B-B350-C11CED8DBC96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.GraphQL.Client.Console", "Chapter11\Northwind.GraphQL.Client.Console\Northwind.GraphQL.Client.Console.csproj", "{D71DDEF8-8A51-4817-A2E0-E49AFD50A881}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -372,6 +374,10 @@ Global
 		{5E7B764B-3BDA-468B-B350-C11CED8DBC96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E7B764B-3BDA-468B-B350-C11CED8DBC96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E7B764B-3BDA-468B-B350-C11CED8DBC96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D71DDEF8-8A51-4817-A2E0-E49AFD50A881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71DDEF8-8A51-4817-A2E0-E49AFD50A881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71DDEF8-8A51-4817-A2E0-E49AFD50A881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71DDEF8-8A51-4817-A2E0-E49AFD50A881}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5} = {220083C8-CB47-4E28-B721-C69A659269D8}
@@ -431,5 +437,6 @@ Global
 		{C7C5C452-7A16-4144-B97F-BA2FEE6461E0} = {645A1C53-D62B-4918-99A4-A856ECB90FAE}
 		{4E01865F-4222-4B39-99C9-7CCA10C771DD} = {645A1C53-D62B-4918-99A4-A856ECB90FAE}
 		{5E7B764B-3BDA-468B-B350-C11CED8DBC96} = {A209C05D-2EAD-48B3-A113-7D5D425A60F5}
+		{D71DDEF8-8A51-4817-A2E0-E49AFD50A881} = {A209C05D-2EAD-48B3-A113-7D5D425A60F5}
 	EndGlobalSection
 EndGlobal
