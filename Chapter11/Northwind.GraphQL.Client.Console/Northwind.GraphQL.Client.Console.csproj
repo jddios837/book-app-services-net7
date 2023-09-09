@@ -14,4 +14,21 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+      <PackageReference Include="StrawberryShake.CodeGeneration.CSharp.Analyzers" Version="12.21.0" />
+      <PackageReference Include="StrawberryShake.Transport.Http" Version="13.5.1" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Using Include="System.Console" Static="true" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <GraphQL Update="Northwind.GraphQL.Client.Console\seafoodProducts.graphql">
+        <Generator>MSBuild:Compile</Generator>
+      </GraphQL>
+    </ItemGroup>
+
 </Project>
