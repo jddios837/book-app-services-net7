@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGrpcClient<Greeter.GreeterClient>("Greeter",
     opt =>
     {
-        opt.Address = new Uri("https://localhost:7021");
+        opt.Address = new Uri("http://localhost:5269");
     });
 builder.Services.AddControllersWithViews();
 

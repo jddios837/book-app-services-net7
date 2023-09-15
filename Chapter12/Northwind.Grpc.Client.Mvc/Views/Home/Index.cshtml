@@ -4,5 +4,18 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form>
+        <input name="name" placeholder="Enter your name" />
+        <input type="submit" />
+    </form>
 </div>
+
+@if (ViewData["greeting"] is not null)
+{
+    <p class="alert alert-primary">@ViewData["greeting"]</p>
+}
+
+@if (ViewData["exception"] is not null)
+{
+    <p class="alert alert-danger">@ViewData["exception"]</p>
+}

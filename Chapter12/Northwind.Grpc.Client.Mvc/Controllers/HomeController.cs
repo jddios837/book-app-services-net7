@@ -10,14 +10,28 @@ namespace Northwind.Grpc.Client.Mvc.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    protected readonly Greeter.GreeterClient _greeterClient;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger,
+        GrpcClientFactory factory)
     {
         _logger = logger;
+        _greeterClient = factory.CreateClient<Greeter.GreeterClient>("Greeter");
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index(string name = "Henrietta")
     {
+        try
+        {
+            var reply = await _greeterClient.SayHelloAsync(new HelloRequest { Name = name });
+            ViewData["greeting"] = "Greeting from gRPC service: " + reply.Message;
+        }
+        catch (Exception e)
+        {
+            _logger.LogWarning($"Northwind.Grpc.Service is not responding.");
+            ViewData["exception"] = e.Message;
+        }
+        
         return View();
     }
 
