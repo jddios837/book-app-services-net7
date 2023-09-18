@@ -9,6 +9,12 @@ builder.Services.AddGrpcClient<Greeter.GreeterClient>("Greeter",
     {
         opt.Address = new Uri("http://localhost:5269");
     });
+builder.Services.AddGrpcClient<Shipper.ShipperClient>("Shipper",
+    opt =>
+    {
+        opt.Address = new Uri("http://localhost:5269");
+    });
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

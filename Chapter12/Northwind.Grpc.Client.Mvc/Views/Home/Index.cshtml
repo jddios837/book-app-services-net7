@@ -8,6 +8,10 @@
         <input name="name" placeholder="Enter your name" />
         <input type="submit" />
     </form>
+    <form>
+        <input name="id" placeholder="Enter a shipper id" />
+        <input type="submit" />
+    </form>
 </div>
 
 @if (ViewData["greeting"] is not null)
@@ -18,4 +22,9 @@
 @if (ViewData["exception"] is not null)
 {
     <p class="alert alert-danger">@ViewData["exception"]</p>
+}
+
+@if (ViewData["shipper"] is not null)
+{
+    <p class="alert alert-primary">@ViewData["shipper"]</p>
 }

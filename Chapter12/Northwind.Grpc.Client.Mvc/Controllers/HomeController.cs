@@ -11,20 +11,28 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     protected readonly Greeter.GreeterClient _greeterClient;
+    protected readonly Shipper.ShipperClient _shipperClient;
 
     public HomeController(ILogger<HomeController> logger,
         GrpcClientFactory factory)
     {
         _logger = logger;
         _greeterClient = factory.CreateClient<Greeter.GreeterClient>("Greeter");
+        _shipperClient = factory.CreateClient<Shipper.ShipperClient>("Shipper");
     }
 
-    public async Task<IActionResult> Index(string name = "Henrietta")
+    public async Task<IActionResult> Index(string name = "Henrietta", int id = 1)
     {
         try
         {
             var reply = await _greeterClient.SayHelloAsync(new HelloRequest { Name = name });
             ViewData["greeting"] = "Greeting from gRPC service: " + reply.Message;
+
+            ShipperReply shipperReply = await _shipperClient.GetShipperAsync(new ShipperRequest { ShipperId = id });
+
+            ViewData["shipper"] = "Shipper from gRPC service: " +
+                                  $"ID: {shipperReply.ShipperId}, Name: {shipperReply.CompanyName}," +
+                                  $" Phone: {shipperReply.Phone}.";
         }
         catch (Exception e)
         {
