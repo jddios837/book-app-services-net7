@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Northwind.Grpc.Client.Mvc.Models;
 using Grpc.Net.Client;
 using Grpc.Net.ClientFactory;
+using Grpc.Core;
 
 
 namespace Northwind.Grpc.Client.Mvc.Controllers;
@@ -28,11 +29,30 @@ public class HomeController : Controller
             var reply = await _greeterClient.SayHelloAsync(new HelloRequest { Name = name });
             ViewData["greeting"] = "Greeting from gRPC service: " + reply.Message;
 
-            ShipperReply shipperReply = await _shipperClient.GetShipperAsync(new ShipperRequest { ShipperId = id });
+            ShipperReply shipperReply = await _shipperClient.GetShipperAsync(
+                new ShipperRequest { ShipperId = id },
+                deadline: DateTime.UtcNow.AddSeconds(3));
+
+            // AsyncUnaryCall<ShipperReply> shipperCall =
+            //     _shipperClient.GetShipperAsync(new ShipperRequest { ShipperId = id });
+            //
+            // Metadata metadata = await shipperCall.ResponseHeadersAsync;
+            //
+            // foreach (var entry in metadata)
+            // {
+            //     _logger.LogCritical($"Key: {entry.Key}, Value: {entry.Value}");
+            // }
+
+            // ShipperReply shipperReply = await shipperCall.ResponseAsync;
 
             ViewData["shipper"] = "Shipper from gRPC service: " +
                                   $"ID: {shipperReply.ShipperId}, Name: {shipperReply.CompanyName}," +
                                   $" Phone: {shipperReply.Phone}.";
+        }
+        catch (RpcException rpcex) when (rpcex.StatusCode == global::Grpc.Core.StatusCode.DeadlineExceeded)
+        {
+            _logger.LogWarning("Northwind.Grpc.Service deadline exceeded.");
+            ViewData["exception"] = rpcex.Message;
         }
         catch (Exception e)
         {
