@@ -158,6 +158,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowCalculator", "Chapt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFLowCalculator.Specs", "Chapter99\SpecFLowCalculator.Specs\SpecFLowCalculator.Specs.csproj", "{7B646AE7-78C5-4A46-AD40-8D6EC251212A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.SignalR.Client.Console", "Chapter13\Northwind.SignalR.Client.Console\Northwind.SignalR.Client.Console.csproj", "{62D30265-E77F-4E34-A0E7-3D848F9701EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -424,6 +426,10 @@ Global
 		{7B646AE7-78C5-4A46-AD40-8D6EC251212A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B646AE7-78C5-4A46-AD40-8D6EC251212A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B646AE7-78C5-4A46-AD40-8D6EC251212A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62D30265-E77F-4E34-A0E7-3D848F9701EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62D30265-E77F-4E34-A0E7-3D848F9701EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62D30265-E77F-4E34-A0E7-3D848F9701EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62D30265-E77F-4E34-A0E7-3D848F9701EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5} = {220083C8-CB47-4E28-B721-C69A659269D8}
@@ -491,5 +497,6 @@ Global
 		{7D5E1514-08B6-45F4-89A7-BD24C9535020} = {645A1C53-D62B-4918-99A4-A856ECB90FAE}
 		{E0826B99-3CC0-4C7F-980F-8E5CA0BC9147} = {645A1C53-D62B-4918-99A4-A856ECB90FAE}
 		{7B646AE7-78C5-4A46-AD40-8D6EC251212A} = {645A1C53-D62B-4918-99A4-A856ECB90FAE}
+		{62D30265-E77F-4E34-A0E7-3D848F9701EE} = {11BFD0C2-B714-4877-B6B3-0F72AADE5FD0}
 	EndGlobalSection
 EndGlobal
