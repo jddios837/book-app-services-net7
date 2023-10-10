@@ -5,7 +5,7 @@ namespace Northwind.SignalR.Service.Client.Mvc.Hubs;
 
 public class StockPriceHub : Hub
 {
-    public async IAsyncEnumerable<StockPrice> GetStockPrices(string stockSymbol, CancellationToken cancellationToken)
+    public async IAsyncEnumerable<StockPrice> GetStockPriceUpdates(string stockSymbol, CancellationToken cancellationToken)
     {
         double currentPrice = 267.10; // Simulated initial price.
 
@@ -17,7 +17,7 @@ public class StockPriceHub : Hub
 
             StockPrice stockPrice = new(stockSymbol, currentPrice);
             
-            Console.WriteLine("[{0}] {1} at {2:C",
+            Console.WriteLine("[{0}] {1} at {2:C}",
                 DateTime.UtcNow, stockPrice.Stock, stockPrice.Price);
             
             yield return stockPrice;
