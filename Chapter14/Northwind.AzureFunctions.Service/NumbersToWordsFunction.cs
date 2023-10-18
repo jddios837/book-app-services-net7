@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 using System.Numerics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,12 @@ public static class NumbersToWordsFunction
         ILogger log)
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
+        
+        if (!req.Headers.ContainsKey("Authorization"))
+        {
+            return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
+        }
+        
         string amount = req.Query["amount"];
         if (BigInteger.TryParse(amount, out BigInteger number))
         {
