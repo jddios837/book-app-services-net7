@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>aspnet-Northwind.Mvc-98A7801C-21CF-45F0-8D20-ADAC13239240</UserSecretsId>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <ItemGroup>
@@ -17,6 +18,10 @@
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.9"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.9"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.9"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Chapter02\Northwind.Common.DataContext.SqlServer\Northwind.Common.DataContext.SqlServer.csproj" />
     </ItemGroup>
 
 </Project>
