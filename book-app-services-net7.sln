@@ -109,6 +109,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureApp", "Chapter08\SecureApp\SecureApp.csproj", "{012A2941-FBA3-453D-AFEF-3EBEEAECE94F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter09", "Chapter09", "{18DD54AA-7BF5-48B9-A5CA-15CF6054EE9E}"
+	ProjectSection(SolutionItems) = preProject
+		Index.en-US.resx = Index.en-US.resx
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebApi.Service", "Chapter09\Northwind.WebApi.Service\Northwind.WebApi.Service.csproj", "{92E941B2-A27B-4106-A400-BFA7D193FCE5}"
 EndProject

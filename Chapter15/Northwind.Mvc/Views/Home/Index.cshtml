@@ -1,7 +1,9 @@
-﻿@model IEnumerable<Order>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model IEnumerable<Order>
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Orders";
+    ViewData["Title"] = Localizer["Orders"];
 }
 
 <div class="text-center">
@@ -9,26 +11,27 @@
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
-            <th>Order ID</th>   
-            <th>Order Date</th>   
-            <th>Company Name</th>   
-            <th>Country</th>   
-            <th>Item Count</th>   
-            <th>Order Total</th>   
+            <th>@Localizer["Order ID"]</th>   
+            <th>@Localizer["Order Date"]</th>   
+            <th>@Localizer["Company Name"]</th>   
+            <th>@Localizer["Country"]</th>   
+            <th>@Localizer["Item Count"]</th>   
+            <th>@Localizer["Order Total"]</th>   
         </tr>
         </thead>
         <tbody>
-            @foreach (Order order in Model)
-            {
-                <tr>
-                    <td>@order.OrderId</td>
-                    <td>@order.OrderDate?.ToString("D")</td>
-                    <td>@order.Customer?.CompanyName</td>
-                    <td>@order.Customer?.Country</td>
-                    <td>@order.OrderDetails.Count()</td>
-                    <td>@order.OrderDetails.Sum(od => od.Quantity * od.UnitPrice).ToString("C")</td>
-                </tr>
-            }
+        @foreach (Order order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.OrderDate?.ToString("D")</td>
+                <td>@order.Customer?.CompanyName</td>
+                <td>@order.Customer?.Country</td>
+                <td>@order.OrderDetails.Count()</td>
+                <td>@order.OrderDetails.Sum(od => od.Quantity * od.UnitPrice).ToString("C")</td>
+            </tr>
+        }
         </tbody>
     </table>
+    <a id="endOfTable" />
 </div>

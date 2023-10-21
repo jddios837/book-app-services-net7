@@ -17,11 +17,23 @@ public class HomeController : Controller
         this.db = _db;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(string? id = null, string? country = null)
     {
         IEnumerable<Order> model = db.Orders
             .Include(order => order.Customer)
-            .Include(order => order.OrderDetails)
+            .Include(order => order.OrderDetails);
+
+        if (id != null)
+        {
+            model = model.Where(order => order.Customer?.CustomerId == id);
+        }
+        
+        if (country != null)
+        {
+            model = model.Where(order => order.Customer?.Country == country);
+        }
+        
+        model = model
             .OrderByDescending(order => order.OrderDetails.Sum(od => od.Quantity * od.UnitPrice))
             .AsEnumerable();
         
@@ -31,6 +43,11 @@ public class HomeController : Controller
     public IActionResult Privacy()
     {
         return View();
+    }
+    
+    public IActionResult Shipper(Shipper shipper)
+    {
+        return View(shipper);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -15,9 +15,23 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddControllersWithViews();
+
+builder.Services.AddLocalization(opt => opt.ResourcesPath = "Resources");
+
+builder.Services.AddControllersWithViews().AddViewLocalization();
 
 var app = builder.Build();
+
+string[] cultures = new[] { "en-US", "en-GB", "fr", "fr-FR" };
+
+RequestLocalizationOptions localizationOptions = new();
+
+// culture[0] will be "en-US"
+localizationOptions.SetDefaultCulture(cultures[0])
+    .AddSupportedCultures(cultures) // globalization of data formats
+    .AddSupportedUICultures(cultures); // localization of UI
+
+app.UseRequestLocalization(localizationOptions);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
