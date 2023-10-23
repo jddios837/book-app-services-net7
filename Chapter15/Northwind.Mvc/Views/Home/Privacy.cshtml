@@ -1,4 +1,5 @@
 ﻿@inject NorthwindContext db
+@inject IWebHostEnvironment webhost
 
 @{
     ViewData["Title"] = "Privacy Policy";
@@ -28,6 +29,26 @@
 }
 
 <h1>@ViewData["Title"]</h1>
+
+<environment names="Development,Staging">
+    <div class="alert alert-warning">
+        <h2>Attention developers and testers</h2>
+        <p>
+            This is a warning that only developers and testers will see.
+            Current environment:
+            <span class="badge bg-warning">@webhost.EnvironmentName</span>
+        </p>
+    </div>
+</environment>
+<environment names="Production">
+    <div class="alert alert-info">
+        <h2>Welcome, visitor!</h2>
+        <p>
+            This is a friendly message that only visitors will see.
+            Current environment:
+            <span class="badge bg-info">@webhost.EnvironmentName</span>
+    </div>
+</environment>
 
 <p>
     <a asp-controller="Home" asp-action="Index" class="btn btn-primary" role="button">Orders</a>

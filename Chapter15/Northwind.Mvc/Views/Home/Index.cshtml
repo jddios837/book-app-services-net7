@@ -6,6 +6,25 @@
     ViewData["Title"] = Localizer["Orders"];
 }
 
+<div class="row">
+    <div class="col">
+        <h2>Live</h2>
+        <p class="alert alert-info">
+            UTC: @DateTime.UtcNow.ToLongDateString() at 
+            @DateTime.UtcNow.ToLongTimeString()
+        </p>
+    </div>
+    <div class="col">
+        <h2>Cached</h2>
+        <p class="alert alert-secondary">
+            <cache expires-after="@TimeSpan.FromSeconds(10)">
+                UTC: @DateTime.UtcNow.ToLongDateString() at 
+                @DateTime.UtcNow.ToLongTimeString()
+            </cache>
+        </p>
+    </div>
+</div>
+
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
     <table class="table table-bordered table-striped">
