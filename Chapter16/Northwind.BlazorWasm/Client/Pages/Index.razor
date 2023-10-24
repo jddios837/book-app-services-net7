@@ -1,3 +1,20 @@
 ﻿@page "/"
 
 <h1>Hello, Blazor!</h1>
+
+<div class="row">
+    <div class="col">
+        <div class="alert alert-info">
+            <h4>Progress of database deletion</h4>
+            <ProgressBar
+                Value="25"
+                IsAnimated="true"
+                ShowValue="true"
+                LabelText="Progress of database deletion">
+            </ProgressBar>
+        </div>
+    </div>
+    <div class="col">
+        More components coming soon.
+    </div>
+</div>
