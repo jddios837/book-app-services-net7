@@ -1,0 +1,12 @@
+﻿@page "/Employees/{Country?}"
+
+<h3>Employees @(string.IsNullOrWhiteSpace(Country) ? "Worldwide" : "in " + Country)</h3>
+
+<QuickGrid Items="@employees">
+    <PropertyColumn Property="@(emp => emp.EmployeeId)" Sortable="true"/>
+</QuickGrid>
+
+@code {
+    [Parameter]
+    public string? Country { get; set; }
+}
