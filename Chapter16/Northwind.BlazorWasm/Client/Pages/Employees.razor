@@ -1,5 +1,6 @@
 ﻿@page "/Employees/{Country?}"
 @inject IHttpClientFactory httpClientFactory
+@inject LocalStorageService localStorage
 
 <h3>Employees @(string.IsNullOrWhiteSpace(Country) ? "Worldwide" : "in " + Country)</h3>
 
@@ -14,6 +15,12 @@
 </QuickGrid>
 
 @code {
+    private const string keyTS = "employeesLastGet";
+    private const string keyData = "employeesArray";
+
+    [Parameter]
+    public TimeSpan CacheDuration { get; set; } = TimeSpan.FromMinutes(10);
+    
     [Parameter]
     public string? Country { get; set; }
 
@@ -22,6 +29,7 @@
 
     protected override async Task OnParametersSetAsync()
     {
+        string employeesJson = "{}";
         Employee[]? employeesArray = null;
 
         // Employee entity has circular reference to itself so
@@ -31,20 +39,43 @@
             ReferenceHandler = ReferenceHandler.Preserve,
             PropertyNameCaseInsensitive = true
         };
+
+        string lastGetText = await localStorage.GetValueAsync(keyTS);
+        bool isDate = DateTime.TryParse(lastGetText, out DateTime lastGet);
+
+        if ((isDate) && (lastGet.Add(CacheDuration) >= DateTime.UtcNow))
+        {
+            employeesJson = await localStorage.GetValueAsync(keyData);
+        }
+        else
+        {
+            // refresh the employees from the web service
+            HttpClient client = httpClientFactory.CreateClient("Northwind.BlazorWasm.ServerAPI");
         
-        HttpClient client = httpClientFactory.CreateClient("Northwind.BlazorWasm.ServerAPI");
-        
-        string path = "api/employees";
+            string path = "api/employees";
+
+            try
+            {
+                employeesJson = await client.GetStringAsync(path);
+                
+                await localStorage.SetValueAsync(keyData, employeesJson);
+                await localStorage.SetValueAsync(keyTS, DateTime.UtcNow.ToString());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"{e.GetType()}: {e.Message}");
+            }
+        }
 
         try
         {
-            employeesArray = await client.GetFromJsonAsync<Employee[]?>(path, jsonOptions);
+            employeesArray = JsonSerializer.Deserialize<Employee[]?>(employeesJson, jsonOptions);
         }
         catch (Exception e)
         {
             Console.WriteLine($"{e.GetType()}: {e.Message}");
         }
-
+        
         if (employeesArray is not null)
         {
             _employees = employeesArray.AsQueryable();
