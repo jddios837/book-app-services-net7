@@ -69,6 +69,12 @@ app.MapPost("api/employees", async (
 })
     .Produces<Employee>(StatusCodes.Status201Created);
 
+// Categories API
+app.MapGet("api/categories", ([FromServices] NorthwindContext db) =>
+    Results.Json(db.Categories))
+    .WithName("GetCategories")
+    .Produces<Category[]>(StatusCodes.Status200OK);
+
 
 
 app.MapRazorPages();

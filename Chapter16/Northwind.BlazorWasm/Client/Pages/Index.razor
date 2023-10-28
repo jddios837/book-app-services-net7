@@ -1,4 +1,5 @@
 ﻿@page "/"
+@inject IHttpClientFactory httpClientFactory
 
 <h1>Hello, Blazor!</h1>
 
@@ -37,12 +38,46 @@
 
 <div class="row">
     <div class="col">
+        <Carousel Items="_categories"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
         <Employees Country="USA" />
         <Employees />
     </div>
 </div>
 
 @code {
+
+    private List<Category>? _categories = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        HttpClient client = httpClientFactory.CreateClient("Northwind.BlazorWasm.ServerAPI");
+        string path = "api/categories";
+
+        try
+        {
+            var employeesJson = await client.GetStringAsync(path);
+            
+            // _categories = JsonSerializer.Deserialize<List<Category>>(employeesJson, 
+            // new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            _categories = new List<Category>()
+            {
+                new() { CategoryId = 1, CategoryName = "seafood", Description = "Sea Food" },
+                new() { CategoryId = 2, CategoryName = "meat", Description = "Meat" },
+                new() { CategoryId = 3, CategoryName = "cereals", Description = "Cereals" }
+            };
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"{e.GetType()}: {e.Message}");
+        }
+    }
+
     private void Yes_Click(MouseEventArgs obj)
     {
         Console.WriteLine("User clicked 'Primary' button at ({0}, {1}).", arg0: obj.ClientX, arg1: obj.ClientY);

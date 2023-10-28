@@ -14,5 +14,6 @@ builder.Services.AddHttpClient("Northwind.BlazorWasm.ServerAPI",
 builder.Services.AddScoped(sp =>
     sp.GetRequiredService<IHttpClientFactory>().CreateClient("Northwind.BlazorWasm.ServerAPI"));
 builder.Services.AddScoped<LocalStorageService>();
+builder.Services.AddScoped<CarouselService>();
 
 await builder.Build().RunAsync();
