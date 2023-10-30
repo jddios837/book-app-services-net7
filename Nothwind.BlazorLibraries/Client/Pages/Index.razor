@@ -1,0 +1,41 @@
+﻿@page "/"
+
+@inject TooltipService tooltipService
+@inject ContextMenuService contextMenuService
+
+<h1 @ref="h1Element"
+    @onmouseover="@(args => ShowTooltip(h1Element, new TooltipOptions { Duration = 5000 }))"
+    @oncontextmenu=@(args => ShowContextMenuWithItems(args))
+    @oncontextmenu:preventDefault="true">
+    Hello, Radzen Blazor!
+</h1>
+
+@code {
+    ElementReference h1Element;
+
+    void ShowTooltip(ElementReference element, TooltipOptions? options = null)
+    {
+        tooltipService.Open(element,
+        "Right-click this heading to see shipping companies.",
+        options);
+    }
+
+    void ShowContextMenuWithItems(MouseEventArgs args)
+    {
+        ContextMenuItem[] menuItems =
+        {
+            new() { Value = 1, Text = "Speedy Express"},
+            new() { Value = 2, Text = "United Package"},
+            new() { Value = 1, Text = "Federal Shipping"},
+        };
+        
+        contextMenuService.Open(args, menuItems, OnMenuItemClick);
+    }
+
+    void OnMenuItemClick(MenuItemEventArgs obj)
+    {
+        Console.WriteLine($"Menu item clicked, Value={obj.Value}, Text={obj.Text}");
+        contextMenuService.Close();
+    }
+
+}

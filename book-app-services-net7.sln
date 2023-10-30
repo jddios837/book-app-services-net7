@@ -1,187 +1,198 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleChapter1", "ConsoleChapter1\ConsoleChapter1.csproj", "{E6D1EB7C-1B0C-44E8-B3B1-1606C5F3A33A}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleChapter1", "ConsoleChapter1\ConsoleChapter1.csproj", "{E6D1EB7C-1B0C-44E8-B3B1-1606C5F3A33A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nortwind.Console.SqlClient", "Chapter02\Nortwind.Console.SqlClient\Nortwind.Console.SqlClient.csproj", "{111B1871-B4C4-4DA3-8D97-A787150A284C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nortwind.Console.SqlClient", "Chapter02\Nortwind.Console.SqlClient\Nortwind.Console.SqlClient.csproj", "{111B1871-B4C4-4DA3-8D97-A787150A284C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Norwind.Console.EFCore", "Norwind.Console.EFCore\Norwind.Console.EFCore.csproj", "{F50133F6-2192-4600-8FA5-D0B0C9A60B00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Norwind.Console.EFCore", "Norwind.Console.EFCore\Norwind.Console.EFCore.csproj", "{F50133F6-2192-4600-8FA5-D0B0C9A60B00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Console.HierarchyMapping", "Northwind.Console.HierarchyMapping\Northwind.Console.HierarchyMapping.csproj", "{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Console.HierarchyMapping", "Northwind.Console.HierarchyMapping\Northwind.Console.HierarchyMapping.csproj", "{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter02", "Chapter02", "{220083C8-CB47-4E28-B721-C69A659269D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter01", "Chapter01", "{DF964075-E416-45CA-ACE1-1ADB0E90961D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Common.EntityModels.SqlServer", "Chapter02\Northwind.Common.EntityModels.SqlServer\Northwind.Common.EntityModels.SqlServer.csproj", "{C2960CF9-745C-4C56-98ED-E7BB39EA8543}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Common.EntityModels.SqlServer", "Chapter02\Northwind.Common.EntityModels.SqlServer\Northwind.Common.EntityModels.SqlServer.csproj", "{C2960CF9-745C-4C56-98ED-E7BB39EA8543}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Common.DataContext.SqlServer", "Chapter02\Northwind.Common.DataContext.SqlServer\Northwind.Common.DataContext.SqlServer.csproj", "{AD41BFF2-827F-4D71-9B1C-32829699BB06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Common.DataContext.SqlServer", "Chapter02\Northwind.Common.DataContext.SqlServer\Northwind.Common.DataContext.SqlServer.csproj", "{AD41BFF2-827F-4D71-9B1C-32829699BB06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Common.EntityModels.Tests", "Chapter02\Northwind.Common.EntityModels.Tests\Northwind.Common.EntityModels.Tests.csproj", "{7A79CD20-A1AD-4F0D-86B0-68AB15DAB09B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Common.EntityModels.Tests", "Chapter02\Northwind.Common.EntityModels.Tests\Northwind.Common.EntityModels.Tests.csproj", "{7A79CD20-A1AD-4F0D-86B0-68AB15DAB09B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter03", "Chapter03", "{87DC2743-0CFF-4C4E-919C-D162ED855A12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.CosmosDb.SqlApi", "Chapter03\Northwind.CosmosDb.SqlApi\Northwind.CosmosDb.SqlApi.csproj", "{6B9B6B1F-B897-47FF-A905-5792E2B75968}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.CosmosDb.SqlApi", "Chapter03\Northwind.CosmosDb.SqlApi\Northwind.CosmosDb.SqlApi.csproj", "{6B9B6B1F-B897-47FF-A905-5792E2B75968}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter04", "Chapter04", "{4D36A84C-367F-4BAF-91DA-9B09F6D0A1D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitoringLib", "Chapter04\MonitoringLib\MonitoringLib.csproj", "{1B655116-1984-41D0-A7FD-7E3911D98E63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitoringLib", "Chapter04\MonitoringLib\MonitoringLib.csproj", "{1B655116-1984-41D0-A7FD-7E3911D98E63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitoringApp", "Chapter04\MonitoringApp\MonitoringApp.csproj", "{E7C1E81C-6D24-4510-B463-CD5C4AD1AE93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitoringApp", "Chapter04\MonitoringApp\MonitoringApp.csproj", "{E7C1E81C-6D24-4510-B463-CD5C4AD1AE93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarking", "Chapter04\Benchmarking\Benchmarking.csproj", "{C6C7A3BE-B101-427C-B99B-7DF27420A22D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarking", "Chapter04\Benchmarking\Benchmarking.csproj", "{C6C7A3BE-B101-427C-B99B-7DF27420A22D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithTasks", "Chapter04\WorkingWithTasks\WorkingWithTasks.csproj", "{7535509B-1608-48C5-B21A-E3E938584AC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithTasks", "Chapter04\WorkingWithTasks\WorkingWithTasks.csproj", "{7535509B-1608-48C5-B21A-E3E938584AC5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter05", "Chapter05", "{66EBB4C6-1E9E-4BBD-8A8D-639B0D32F029}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentTests", "Chapter05\FluentTests\FluentTests.csproj", "{76BEA33A-0FA8-429C-991A-68A63B04A00D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentTests", "Chapter05\FluentTests\FluentTests.csproj", "{76BEA33A-0FA8-429C-991A-68A63B04A00D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidation.Models", "Chapter05\FluentValidation.Models\FluentValidation.Models.csproj", "{8454D2AC-6E4D-4D16-B3E7-5E5536D51EDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidation.Models", "Chapter05\FluentValidation.Models\FluentValidation.Models.csproj", "{8454D2AC-6E4D-4D16-B3E7-5E5536D51EDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidation.Validators", "Chapter05\FluentValidation.Validators\FluentValidation.Validators.csproj", "{6E2AF4F4-A65B-4EF9-AAB9-AB7A25FC7F8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidation.Validators", "Chapter05\FluentValidation.Validators\FluentValidation.Validators.csproj", "{6E2AF4F4-A65B-4EF9-AAB9-AB7A25FC7F8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidation.App", "Chapter05\FluentValidation.App\FluentValidation.App.csproj", "{D220169A-C94F-4C34-B6E4-6E8EC74597B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidation.App", "Chapter05\FluentValidation.App\FluentValidation.App.csproj", "{D220169A-C94F-4C34-B6E4-6E8EC74597B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronizingResourceAccess", "Chapter04\SynchronizingResourceAccess\SynchronizingResourceAccess.csproj", "{AA00C284-BC13-4B12-81E1-528AD15ABB35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynchronizingResourceAccess", "Chapter04\SynchronizingResourceAccess\SynchronizingResourceAccess.csproj", "{AA00C284-BC13-4B12-81E1-528AD15ABB35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncConsole", "Chapter04\AsyncConsole\AsyncConsole.csproj", "{8F8E8468-07FC-443C-9931-2A0F62AC7CFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncConsole", "Chapter04\AsyncConsole\AsyncConsole.csproj", "{8F8E8468-07FC-443C-9931-2A0F62AC7CFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncEnumerable", "Chapter04\AsyncEnumerable\AsyncEnumerable.csproj", "{C0AFA351-D2B1-45AE-912E-55405148F793}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncEnumerable", "Chapter04\AsyncEnumerable\AsyncEnumerable.csproj", "{C0AFA351-D2B1-45AE-912E-55405148F793}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfResponsive", "Chapter04\WpfResponsive\WpfResponsive.csproj", "{BAB1460A-C9B5-4F37-852D-6295AE434613}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfResponsive", "Chapter04\WpfResponsive\WpfResponsive.csproj", "{BAB1460A-C9B5-4F37-852D-6295AE434613}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithImages", "Chapter05\WorkingWithImages\WorkingWithImages.csproj", "{4B6E7A15-F4B4-4FCE-A91A-96D47D011388}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithImages", "Chapter05\WorkingWithImages\WorkingWithImages.csproj", "{4B6E7A15-F4B4-4FCE-A91A-96D47D011388}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilogging", "Chapter05\Serilogging\Serilogging.csproj", "{A54AE5EA-E09C-4D2E-BB36-48757FA93702}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilogging", "Chapter05\Serilogging\Serilogging.csproj", "{A54AE5EA-E09C-4D2E-BB36-48757FA93702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MappingObjects.Models", "Chapter05\MappingObjects.Models\MappingObjects.Models.csproj", "{CC988124-5861-46A8-AEB5-8D591FDE2FE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MappingObjects.Models", "Chapter05\MappingObjects.Models\MappingObjects.Models.csproj", "{CC988124-5861-46A8-AEB5-8D591FDE2FE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MappingObjects.Mappers", "Chapter05\MappingObjects.Mappers\MappingObjects.Mappers.csproj", "{295CB089-916E-46DC-A4B4-3FA3BB1FF731}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MappingObjects.Mappers", "Chapter05\MappingObjects.Mappers\MappingObjects.Mappers.csproj", "{295CB089-916E-46DC-A4B4-3FA3BB1FF731}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MappingObjects.Tests", "Chapter05\MappingObjects.Tests\MappingObjects.Tests.csproj", "{B4AFBF8D-FA78-446B-9808-94F218CBC203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MappingObjects.Tests", "Chapter05\MappingObjects.Tests\MappingObjects.Tests.csproj", "{B4AFBF8D-FA78-446B-9808-94F218CBC203}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MappingObjects", "Chapter05\MappingObjects\MappingObjects.csproj", "{CD9406C7-CD5C-4009-AA95-70D1B72517BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MappingObjects", "Chapter05\MappingObjects\MappingObjects.csproj", "{CD9406C7-CD5C-4009-AA95-70D1B72517BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratingPdf.Models", "Chapter05\GeneratingPdf.Models\GeneratingPdf.Models.csproj", "{4477E646-9763-459C-BFE1-E993744DD798}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratingPdf.Models", "Chapter05\GeneratingPdf.Models\GeneratingPdf.Models.csproj", "{4477E646-9763-459C-BFE1-E993744DD798}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratingPdf.Document", "Chapter05\GeneratingPdf.Document\GeneratingPdf.Document.csproj", "{AEB3B582-10EB-4444-90C2-5F1367265D7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratingPdf.Document", "Chapter05\GeneratingPdf.Document\GeneratingPdf.Document.csproj", "{AEB3B582-10EB-4444-90C2-5F1367265D7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratingPdf.App", "Chapter05\GeneratingPdf.App\GeneratingPdf.App.csproj", "{0B408AE2-16B5-4D98-A3C9-5689C1C00744}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratingPdf.App", "Chapter05\GeneratingPdf.App\GeneratingPdf.App.csproj", "{0B408AE2-16B5-4D98-A3C9-5689C1C00744}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter06", "Chapter06", "{7D00AACF-CF67-4A65-83C4-0646E67D7562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithReflection", "Chapter06\WorkingWithReflection\WorkingWithReflection.csproj", "{78574C37-2509-4C85-BD3F-9BAF85AEF449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithReflection", "Chapter06\WorkingWithReflection\WorkingWithReflection.csproj", "{78574C37-2509-4C85-BD3F-9BAF85AEF449}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter07", "Chapter07", "{44AEAA0A-A95C-41C3-8CE2-574CDE1486AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithTime", "Chapter07\WorkingWithTime\WorkingWithTime.csproj", "{714E93ED-CA44-4CB4-92F7-A1E6F39CB49B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithTime", "Chapter07\WorkingWithTime\WorkingWithTime.csproj", "{714E93ED-CA44-4CB4-92F7-A1E6F39CB49B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithTimeZones", "Chapter07\WorkingWithTimeZones\WorkingWithTimeZones.csproj", "{F8E5048A-B56E-4F21-8263-A7DF3AA90E50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithTimeZones", "Chapter07\WorkingWithTimeZones\WorkingWithTimeZones.csproj", "{F8E5048A-B56E-4F21-8263-A7DF3AA90E50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithCulture", "Chapter07\WorkingWithCulture\WorkingWithCulture.csproj", "{329F8C07-E096-43DA-B671-13A0A81EE27A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithCulture", "Chapter07\WorkingWithCulture\WorkingWithCulture.csproj", "{329F8C07-E096-43DA-B671-13A0A81EE27A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicLoadAndExecute.Library", "Chapter06\DynamicLoadAndExecute.Library\DynamicLoadAndExecute.Library.csproj", "{240AE0DA-35A0-426E-9525-E47CE3516783}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicLoadAndExecute.Library", "Chapter06\DynamicLoadAndExecute.Library\DynamicLoadAndExecute.Library.csproj", "{240AE0DA-35A0-426E-9525-E47CE3516783}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicLoadAndExecute.Console", "Chapter06\DynamicLoadAndExecute.Console\DynamicLoadAndExecute.Console.csproj", "{B31609C0-3241-4143-8E86-68C3AFF6DC06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicLoadAndExecute.Console", "Chapter06\DynamicLoadAndExecute.Console\DynamicLoadAndExecute.Console.csproj", "{B31609C0-3241-4143-8E86-68C3AFF6DC06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithExpressionTrees", "Chapter06\WorkingWithExpressionTrees\WorkingWithExpressionTrees.csproj", "{41595B39-E7FB-4434-9EDC-83DD0E201354}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithExpressionTrees", "Chapter06\WorkingWithExpressionTrees\WorkingWithExpressionTrees.csproj", "{41595B39-E7FB-4434-9EDC-83DD0E201354}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratingCodeApp", "Chapter06\GeneratingCodeApp\GeneratingCodeApp.csproj", "{BA50C10E-0535-4C71-8A31-433602CCC17F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratingCodeApp", "Chapter06\GeneratingCodeApp\GeneratingCodeApp.csproj", "{BA50C10E-0535-4C71-8A31-433602CCC17F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratingCodeLib", "Chapter06\GeneratingCodeLib\GeneratingCodeLib.csproj", "{86B8EE8B-593C-4440-A7F0-FE3306910787}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratingCodeLib", "Chapter06\GeneratingCodeLib\GeneratingCodeLib.csproj", "{86B8EE8B-593C-4440-A7F0-FE3306910787}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter08", "Chapter08", "{AB4309EE-CE93-444C-B414-8F8E8C0F5DAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionApp", "Chapter08\EncryptionApp\EncryptionApp.csproj", "{222193C5-4467-4F2A-B3BF-C617D154D7BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptionApp", "Chapter08\EncryptionApp\EncryptionApp.csproj", "{222193C5-4467-4F2A-B3BF-C617D154D7BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter99", "Chapter99", "{645A1C53-D62B-4918-99A4-A856ECB90FAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChatWithOpenAI", "Chapter99\SimpleChatWithOpenAI\SimpleChatWithOpenAI.csproj", "{902C0FDD-DA55-409E-87E1-48D52C354DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleChatWithOpenAI", "Chapter99\SimpleChatWithOpenAI\SimpleChatWithOpenAI.csproj", "{902C0FDD-DA55-409E-87E1-48D52C354DDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptographyLib", "Chapter08\CryptographyLib\CryptographyLib.csproj", "{647C7095-E684-4399-B062-0DCB7BD27C23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptographyLib", "Chapter08\CryptographyLib\CryptographyLib.csproj", "{647C7095-E684-4399-B062-0DCB7BD27C23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashingApp", "Chapter08\HashingApp\HashingApp.csproj", "{E904247F-D807-4241-A5BA-D460A764D8CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashingApp", "Chapter08\HashingApp\HashingApp.csproj", "{E904247F-D807-4241-A5BA-D460A764D8CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigningApp", "Chapter08\SigningApp\SigningApp.csproj", "{D885658D-CDDA-4E83-95FA-BD160AB73DB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigningApp", "Chapter08\SigningApp\SigningApp.csproj", "{D885658D-CDDA-4E83-95FA-BD160AB73DB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomizingApp", "Chapter08\RandomizingApp\RandomizingApp.csproj", "{DA0DCB84-FA66-426C-81A1-23DE3F2C5A2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomizingApp", "Chapter08\RandomizingApp\RandomizingApp.csproj", "{DA0DCB84-FA66-426C-81A1-23DE3F2C5A2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureApp", "Chapter08\SecureApp\SecureApp.csproj", "{012A2941-FBA3-453D-AFEF-3EBEEAECE94F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureApp", "Chapter08\SecureApp\SecureApp.csproj", "{012A2941-FBA3-453D-AFEF-3EBEEAECE94F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter09", "Chapter09", "{18DD54AA-7BF5-48B9-A5CA-15CF6054EE9E}"
 	ProjectSection(SolutionItems) = preProject
 		Index.en-US.resx = Index.en-US.resx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebApi.Service", "Chapter09\Northwind.WebApi.Service\Northwind.WebApi.Service.csproj", "{92E941B2-A27B-4106-A400-BFA7D193FCE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.WebApi.Service", "Chapter09\Northwind.WebApi.Service\Northwind.WebApi.Service.csproj", "{92E941B2-A27B-4106-A400-BFA7D193FCE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebApi.Client.Mvc", "Chapter09\Northwind.WebApi.Client.Mvc\Northwind.WebApi.Client.Mvc.csproj", "{40CD97E4-AC0E-445F-98F0-B9545FD3612F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.WebApi.Client.Mvc", "Chapter09\Northwind.WebApi.Client.Mvc\Northwind.WebApi.Client.Mvc.csproj", "{40CD97E4-AC0E-445F-98F0-B9545FD3612F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebApi.Client.Console", "Chapter09\Northwind.WebApi.Client.Console\Northwind.WebApi.Client.Console.csproj", "{E2CBCD00-3A90-41BE-8563-C31CB7F8ED99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.WebApi.Client.Console", "Chapter09\Northwind.WebApi.Client.Console\Northwind.WebApi.Client.Console.csproj", "{E2CBCD00-3A90-41BE-8563-C31CB7F8ED99}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter10", "Chapter10", "{271B5338-0205-4408-87F8-D0F3E2B76FB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Odata.Service", "Chapter10\Northwind.Odata.Service\Northwind.Odata.Service.csproj", "{52D7E4E7-5550-4202-8A72-563196F9B9D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Odata.Service", "Chapter10\Northwind.Odata.Service\Northwind.Odata.Service.csproj", "{52D7E4E7-5550-4202-8A72-563196F9B9D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingOOP", "Chapter99\TestingOOP\TestingOOP.csproj", "{204C60F0-3B23-4FB5-8669-338E3E5702CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingOOP", "Chapter99\TestingOOP\TestingOOP.csproj", "{204C60F0-3B23-4FB5-8669-338E3E5702CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.OData.Client.Mvc", "Chapter10\Northwind.OData.Client.Mvc\Northwind.OData.Client.Mvc.csproj", "{F106C0D5-374B-4328-8CED-E9B5E6A0F8C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.OData.Client.Mvc", "Chapter10\Northwind.OData.Client.Mvc\Northwind.OData.Client.Mvc.csproj", "{F106C0D5-374B-4328-8CED-E9B5E6A0F8C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq.Basics", "Chapter99\Linq.Basics\Linq.Basics.csproj", "{23A6E125-3DC5-457F-8980-0DF062C4D3CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.Basics", "Chapter99\Linq.Basics\Linq.Basics.csproj", "{23A6E125-3DC5-457F-8980-0DF062C4D3CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter11", "Chapter11", "{A209C05D-2EAD-48B3-A113-7D5D425A60F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.GraphQL", "Chapter11\Northwind.GraphQL\Northwind.GraphQL.csproj", "{FC302974-06BA-4E2B-B125-E4462DEA78B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.GraphQL", "Chapter11\Northwind.GraphQL\Northwind.GraphQL.csproj", "{FC302974-06BA-4E2B-B125-E4462DEA78B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManhattanDistanceKata", "Chapter99\ManhattanDistanceKata\ManhattanDistanceKata.csproj", "{97015B08-EC42-4044-87A6-3E8FDEB44D55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManhattanDistanceKata", "Chapter99\ManhattanDistanceKata\ManhattanDistanceKata.csproj", "{97015B08-EC42-4044-87A6-3E8FDEB44D55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq.SelectMany", "Chapter99\Linq.SelectMany\Linq.SelectMany.csproj", "{C7C5C452-7A16-4144-B97F-BA2FEE6461E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.SelectMany", "Chapter99\Linq.SelectMany\Linq.SelectMany.csproj", "{C7C5C452-7A16-4144-B97F-BA2FEE6461E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingBoxingUnboxing", "Chapter99\TestingBoxingUnboxing\TestingBoxingUnboxing.csproj", "{4E01865F-4222-4B39-99C9-7CCA10C771DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingBoxingUnboxing", "Chapter99\TestingBoxingUnboxing\TestingBoxingUnboxing.csproj", "{4E01865F-4222-4B39-99C9-7CCA10C771DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Mvc.GraphQLClient", "Chapter11\Northwind.Mvc.GraphQLClient\Northwind.Mvc.GraphQLClient.csproj", "{5E7B764B-3BDA-468B-B350-C11CED8DBC96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Mvc.GraphQLClient", "Chapter11\Northwind.Mvc.GraphQLClient\Northwind.Mvc.GraphQLClient.csproj", "{5E7B764B-3BDA-468B-B350-C11CED8DBC96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.GraphQL.Client.Console", "Chapter11\Northwind.GraphQL.Client.Console\Northwind.GraphQL.Client.Console.csproj", "{D71DDEF8-8A51-4817-A2E0-E49AFD50A881}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.GraphQL.Client.Console", "Chapter11\Northwind.GraphQL.Client.Console\Northwind.GraphQL.Client.Console.csproj", "{D71DDEF8-8A51-4817-A2E0-E49AFD50A881}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter12", "Chapter12", "{9C48927B-F366-4D99-85AB-AB03B630AE1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Grpc.Service", "Chapter12\Northwind.Grpc.Service\Northwind.Grpc.Service.csproj", "{A3E1DFA3-65DF-4555-89CD-7CE993F49562}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Grpc.Service", "Chapter12\Northwind.Grpc.Service\Northwind.Grpc.Service.csproj", "{A3E1DFA3-65DF-4555-89CD-7CE993F49562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Grpc.Client.Mvc", "Chapter12\Northwind.Grpc.Client.Mvc\Northwind.Grpc.Client.Mvc.csproj", "{31A74047-4064-4244-AF0A-91BC42F52264}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Grpc.Client.Mvc", "Chapter12\Northwind.Grpc.Client.Mvc\Northwind.Grpc.Client.Mvc.csproj", "{31A74047-4064-4244-AF0A-91BC42F52264}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter13", "Chapter13", "{11BFD0C2-B714-4877-B6B3-0F72AADE5FD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Common", "Chapter13\Northwind.Common\Northwind.Common.csproj", "{689FBF00-390E-4F87-9778-4E936C9B2ED2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Common", "Chapter13\Northwind.Common\Northwind.Common.csproj", "{689FBF00-390E-4F87-9778-4E936C9B2ED2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.SignalR.Service.Client.Mvc", "Chapter13\Northwind.SignalR.Service.Client.Mvc\Northwind.SignalR.Service.Client.Mvc.csproj", "{20CC373E-9799-4C9D-BBC7-F616A34D3C93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.SignalR.Service.Client.Mvc", "Chapter13\Northwind.SignalR.Service.Client.Mvc\Northwind.SignalR.Service.Client.Mvc.csproj", "{20CC373E-9799-4C9D-BBC7-F616A34D3C93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Switch.Using.Guids", "Chapter99\Switch.Using.Guids\Switch.Using.Guids.csproj", "{7D5E1514-08B6-45F4-89A7-BD24C9535020}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Switch.Using.Guids", "Chapter99\Switch.Using.Guids\Switch.Using.Guids.csproj", "{7D5E1514-08B6-45F4-89A7-BD24C9535020}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowCalculator", "Chapter99\SpecFlowCalculator\SpecFlowCalculator.csproj", "{E0826B99-3CC0-4C7F-980F-8E5CA0BC9147}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowCalculator", "Chapter99\SpecFlowCalculator\SpecFlowCalculator.csproj", "{E0826B99-3CC0-4C7F-980F-8E5CA0BC9147}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFLowCalculator.Specs", "Chapter99\SpecFLowCalculator.Specs\SpecFLowCalculator.Specs.csproj", "{7B646AE7-78C5-4A46-AD40-8D6EC251212A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFLowCalculator.Specs", "Chapter99\SpecFLowCalculator.Specs\SpecFLowCalculator.Specs.csproj", "{7B646AE7-78C5-4A46-AD40-8D6EC251212A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.SignalR.Client.Console", "Chapter13\Northwind.SignalR.Client.Console\Northwind.SignalR.Client.Console.csproj", "{62D30265-E77F-4E34-A0E7-3D848F9701EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.SignalR.Client.Console", "Chapter13\Northwind.SignalR.Client.Console\Northwind.SignalR.Client.Console.csproj", "{62D30265-E77F-4E34-A0E7-3D848F9701EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.SignalR.Client.Console.Streams", "Chapter13\Northwind.SignalR.Client.Console.Streams\Northwind.SignalR.Client.Console.Streams.csproj", "{4B2B8581-C3D8-4CCF-AC9E-4F98A62B8191}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.SignalR.Client.Console.Streams", "Chapter13\Northwind.SignalR.Client.Console.Streams\Northwind.SignalR.Client.Console.Streams.csproj", "{4B2B8581-C3D8-4CCF-AC9E-4F98A62B8191}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter14", "Chapter14", "{7A9974C0-2C5F-40AF-B539-F36430FE4431}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCrontab.Console", "Chapter14\NCrontab.Console\NCrontab.Console.csproj", "{9BAD060D-091E-4CCF-94E2-922F97B2A3C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCrontab.Console", "Chapter14\NCrontab.Console\NCrontab.Console.csproj", "{9BAD060D-091E-4CCF-94E2-922F97B2A3C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.AzureFunctions.Service", "Chapter14\Northwind.AzureFunctions.Service\Northwind.AzureFunctions.Service.csproj", "{F807B9EC-37DA-4AB1-98FE-273EA9242E12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.AzureFunctions.Service", "Chapter14\Northwind.AzureFunctions.Service\Northwind.AzureFunctions.Service.csproj", "{F807B9EC-37DA-4AB1-98FE-273EA9242E12}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter15", "Chapter15", "{BA601F61-49A5-4C2C-95BC-49A78342A257}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Mvc", "Chapter15\Northwind.Mvc\Northwind.Mvc.csproj", "{5BCF40AA-6BFF-431E-959F-152531543170}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Mvc", "Chapter15\Northwind.Mvc\Northwind.Mvc.csproj", "{5BCF40AA-6BFF-431E-959F-152531543170}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter16", "Chapter16", "{E58DEE58-DB4A-4618-916F-C6C1BA6F2FE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.BlazorWasm.Server", "Chapter16\Northwind.BlazorWasm\Server\Northwind.BlazorWasm.Server.csproj", "{1D5EE057-C7A9-4E3B-B79D-1ED3AC376E38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.BlazorWasm.Server", "Chapter16\Northwind.BlazorWasm\Server\Northwind.BlazorWasm.Server.csproj", "{1D5EE057-C7A9-4E3B-B79D-1ED3AC376E38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.BlazorWasm.Client", "Chapter16\Northwind.BlazorWasm\Client\Northwind.BlazorWasm.Client.csproj", "{D4D81694-C93F-435E-8EE3-4366EFAD6B3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.BlazorWasm.Client", "Chapter16\Northwind.BlazorWasm\Client\Northwind.BlazorWasm.Client.csproj", "{D4D81694-C93F-435E-8EE3-4366EFAD6B3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.BlazorWasm.Shared", "Chapter16\Northwind.BlazorWasm\Shared\Northwind.BlazorWasm.Shared.csproj", "{4AE33EB9-88BD-4356-92C8-6A873E8C5CD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.BlazorWasm.Shared", "Chapter16\Northwind.BlazorWasm\Shared\Northwind.BlazorWasm.Shared.csproj", "{4AE33EB9-88BD-4356-92C8-6A873E8C5CD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter17", "Chapter17", "{D5094A26-824A-4721-A60C-D84B46F77260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nothwind.BlazorLibraries.Server", "Nothwind.BlazorLibraries\Server\Nothwind.BlazorLibraries.Server.csproj", "{DE7E6EAF-1E1C-4DCF-9F9B-B65C26D50A28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nothwind.BlazorLibraries.Client", "Nothwind.BlazorLibraries\Client\Nothwind.BlazorLibraries.Client.csproj", "{76A628B9-0D20-40DF-A7EE-B1C5ED6F5146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nothwind.BlazorLibraries.Shared", "Nothwind.BlazorLibraries\Shared\Nothwind.BlazorLibraries.Shared.csproj", "{B652CFAE-BD37-4200-8DA2-4965D1D966DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -218,9 +229,9 @@ Global
 		{7A79CD20-A1AD-4F0D-86B0-68AB15DAB09B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A79CD20-A1AD-4F0D-86B0-68AB15DAB09B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6B9B6B1F-B897-47FF-A905-5792E2B75968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-										{6B9B6B1F-B897-47FF-A905-5792E2B75968}.Debug|Any CPU.Build.0 = Debug|Any CPU
-										{6B9B6B1F-B897-47FF-A905-5792E2B75968}.Release|Any CPU.ActiveCfg = Release|Any CPU
-										{6B9B6B1F-B897-47FF-A905-5792E2B75968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9B6B1F-B897-47FF-A905-5792E2B75968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9B6B1F-B897-47FF-A905-5792E2B75968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9B6B1F-B897-47FF-A905-5792E2B75968}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1B655116-1984-41D0-A7FD-7E3911D98E63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1B655116-1984-41D0-A7FD-7E3911D98E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B655116-1984-41D0-A7FD-7E3911D98E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -481,12 +492,27 @@ Global
 		{4AE33EB9-88BD-4356-92C8-6A873E8C5CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AE33EB9-88BD-4356-92C8-6A873E8C5CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AE33EB9-88BD-4356-92C8-6A873E8C5CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE7E6EAF-1E1C-4DCF-9F9B-B65C26D50A28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE7E6EAF-1E1C-4DCF-9F9B-B65C26D50A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE7E6EAF-1E1C-4DCF-9F9B-B65C26D50A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE7E6EAF-1E1C-4DCF-9F9B-B65C26D50A28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76A628B9-0D20-40DF-A7EE-B1C5ED6F5146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76A628B9-0D20-40DF-A7EE-B1C5ED6F5146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76A628B9-0D20-40DF-A7EE-B1C5ED6F5146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76A628B9-0D20-40DF-A7EE-B1C5ED6F5146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B652CFAE-BD37-4200-8DA2-4965D1D966DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B652CFAE-BD37-4200-8DA2-4965D1D966DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B652CFAE-BD37-4200-8DA2-4965D1D966DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B652CFAE-BD37-4200-8DA2-4965D1D966DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5} = {220083C8-CB47-4E28-B721-C69A659269D8}
+		{E6D1EB7C-1B0C-44E8-B3B1-1606C5F3A33A} = {DF964075-E416-45CA-ACE1-1ADB0E90961D}
 		{111B1871-B4C4-4DA3-8D97-A787150A284C} = {220083C8-CB47-4E28-B721-C69A659269D8}
 		{F50133F6-2192-4600-8FA5-D0B0C9A60B00} = {220083C8-CB47-4E28-B721-C69A659269D8}
-		{E6D1EB7C-1B0C-44E8-B3B1-1606C5F3A33A} = {DF964075-E416-45CA-ACE1-1ADB0E90961D}
+		{8FFC3916-CDF4-44E0-9F49-A58945F1DDB5} = {220083C8-CB47-4E28-B721-C69A659269D8}
 		{C2960CF9-745C-4C56-98ED-E7BB39EA8543} = {220083C8-CB47-4E28-B721-C69A659269D8}
 		{AD41BFF2-827F-4D71-9B1C-32829699BB06} = {220083C8-CB47-4E28-B721-C69A659269D8}
 		{7A79CD20-A1AD-4F0D-86B0-68AB15DAB09B} = {220083C8-CB47-4E28-B721-C69A659269D8}
@@ -556,5 +582,8 @@ Global
 		{1D5EE057-C7A9-4E3B-B79D-1ED3AC376E38} = {E58DEE58-DB4A-4618-916F-C6C1BA6F2FE9}
 		{D4D81694-C93F-435E-8EE3-4366EFAD6B3D} = {E58DEE58-DB4A-4618-916F-C6C1BA6F2FE9}
 		{4AE33EB9-88BD-4356-92C8-6A873E8C5CD0} = {E58DEE58-DB4A-4618-916F-C6C1BA6F2FE9}
+		{DE7E6EAF-1E1C-4DCF-9F9B-B65C26D50A28} = {D5094A26-824A-4721-A60C-D84B46F77260}
+		{76A628B9-0D20-40DF-A7EE-B1C5ED6F5146} = {D5094A26-824A-4721-A60C-D84B46F77260}
+		{B652CFAE-BD37-4200-8DA2-4965D1D966DC} = {D5094A26-824A-4721-A60C-D84B46F77260}
 	EndGlobalSection
 EndGlobal
