@@ -3,6 +3,9 @@
 @inject TooltipService tooltipService
 @inject ContextMenuService contextMenuService
 
+@inject NotificationService notificationService
+@inject DialogService dialogService
+
 <h1 @ref="h1Element"
     @onmouseover="@(args => ShowTooltip(h1Element, new TooltipOptions { Duration = 5000 }))"
     @oncontextmenu=@(args => ShowContextMenuWithItems(args))
@@ -32,10 +35,52 @@
         contextMenuService.Open(args, menuItems, OnMenuItemClick);
     }
 
-    void OnMenuItemClick(MenuItemEventArgs obj)
+    async void OnMenuItemClick(MenuItemEventArgs args)
     {
-        Console.WriteLine($"Menu item clicked, Value={obj.Value}, Text={obj.Text}");
-        contextMenuService.Close();
+        // Console.WriteLine($"Menu item clicked, Value={obj.Value}, Text={obj.Text}");
+        // contextMenuService.Close();
+
+        if (args.CtrlKey)
+        {
+            bool? clickedYes = await dialogService.Confirm(
+                $"Visitor selected: {args.Text}", 
+                $"Value={args.Value}",
+                new ConfirmOptions() { OkButtonText = "Yes", CancelButtonText = "No" });
+
+            string title = string.Format("You clicked \"{0}\"",
+                (clickedYes.GetValueOrDefault(true) ? "Yes" : "No"));
+
+            DialogOptions options = new()
+            {
+                CloseDialogOnOverlayClick = true,
+                CloseDialogOnEsc = true
+            };
+            
+            dialogService.Open(title, ds => 
+                @<div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @title
+                        </div>
+                    </div>
+                </div>,
+                options);
+        }
+        else
+        {
+            NotificationMessage message = new()
+            {
+                // 1=Info/Speedy Express
+                // 2=Success/United Package
+                // 3=Warning/Federal Shipping
+                Severity = (NotificationSeverity)args.Value,
+                Summary = $"Value={args.Value}",
+                Detail = $"Visitor selected: {args.Text}",
+                Duration = 4000 // milliseconds (ms)
+            };
+            
+            notificationService.Notify(message);
+        }
     }
 
 }
