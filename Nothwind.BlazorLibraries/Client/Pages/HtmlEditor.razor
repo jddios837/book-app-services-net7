@@ -1,0 +1,7 @@
+﻿@page "/htmlEditor"
+
+<RadzenHtmlEditor @bind-Value=@HtmlValue />
+
+@code {
+    public string HtmlValue { get; set; } = "<p>Radzen <strong>HtmlEditor</strong> component</p>";
+}

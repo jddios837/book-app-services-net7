@@ -24,4 +24,16 @@
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\assets_2\Hot beverage\Flat\hot_beverage_flat.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets_2\Honey pot\Color\honey_pot_color.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets_2\Honey pot\High Contrast\honey_pot_high_contrast.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets_2\Lollipop\Color\lollipop_color.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets_2\Lollipop\High Contrast\lollipop_high_contrast.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets_2\Cheese wedge\Color\cheese_wedge_color.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets_2\Cheese wedge\High Contrast\cheese_wedge_high_contrast.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets_2\Bread\Color\bread_color.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets_2\Bread\High Contrast\bread_high_contrast.svg" />
+  </ItemGroup>
+
 </Project>

@@ -28,6 +28,7 @@
                         @foreach (Product product in category.Products)
                         {
                             <RadzenBadge BadgeStyle="BadgeStyle.Info" 
+                                         Style="margin-bottom: 0.1rem;"
                                          Text="@product.ProductName"/>
                         }
                     </div>
@@ -90,8 +91,7 @@
             PropertyNameCaseInsensitive = true
         };
         
-        HttpClient client = httpClientFactory.CreateClient(
-            "Northwind.BlazorLibraries.ServerAPI");
+        HttpClient client = httpClientFactory.CreateClient("Northwind.BlazorLibraries.ServerAPI");
         
         string path = "api/categories";
 

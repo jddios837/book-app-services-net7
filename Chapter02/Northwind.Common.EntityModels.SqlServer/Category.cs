@@ -23,5 +23,5 @@ public partial class Category
     public byte[]? Picture { get; set; }
 
     [InverseProperty("Category")]
-    public virtual ICollection<Product> Products { get; } = new List<Product>();
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }
