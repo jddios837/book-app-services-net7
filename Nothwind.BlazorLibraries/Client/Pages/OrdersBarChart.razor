@@ -3,21 +3,23 @@
 @inject IHttpClientFactory httpClientFactory
 
 <RadzenCheckBox @bind-Value="@showDataLabels"
-                Name="dataLabels"></RadzenCheckBox>
+                Name="dataLabels">
+</RadzenCheckBox>
 
-<RadzenLabel Text="Show Data Labels" For="dataLabels" Style="margin-left: 8px; vertical-align: middle" />
+<RadzenLabel Text="Show Data Labels" For="dataLabels" Style="margin-left: 8px; vertical-align: middle"/>
+
 
 <RadzenChart>
     <RadzenBarSeries Data="@revenue" CategoryProperty="Country"
                      LineType="LineType.Dashed" ValueProperty="Revenue">
-        <RadzenSeriesDataLabels Visible="@showDataLabels" />
-        <RadzenValueAxis Formatter="@FormatAsUSD">
-            <RadzenGridLines Visible="true" />
-            <RadzenAxisTitle Text="Revenue in USD" />
-        </RadzenValueAxis>
-        <RadzenBarOptions Radius="5" />
-        <RadzenLegend Visible="false" />
+        <RadzenSeriesDataLabels Visible="@showDataLabels"/>
     </RadzenBarSeries>
+    <RadzenValueAxis Formatter="@FormatAsUSD">
+        <RadzenGridLines Visible="true"/>
+        <RadzenAxisTitle Text="Revenue in USD"/>
+    </RadzenValueAxis>
+    <RadzenBarOptions Radius="5"/>
+    <RadzenLegend Visible="false"/>
 </RadzenChart>
 
 @code {
@@ -31,7 +33,8 @@
     
     private string FormatAsUSD(object value)
     {
-        return ((double)value).ToString("C0", CultureInfo.GetCultureInfo("en-US"));
+        return ((double)value).ToString("C0",
+            CultureInfo.GetCultureInfo("en-US"));
     }
     
     private DataItem[]? revenue;
@@ -46,7 +49,8 @@
             PropertyNameCaseInsensitive = true
         };
         
-        HttpClient httpClient = httpClientFactory.CreateClient("Northwind.BlazorLibraries.ServiceAPI");
+        HttpClient httpClient = httpClientFactory.CreateClient(
+            "Northwind.BlazorLibraries.ServerAPI");
         
         string path = "api/orders";
 
@@ -58,7 +62,8 @@
                 .Select(group => new DataItem
                 {
                     Country = group.Key,
-                    Revenue = group.Sum(order => order.OrderDetails.Sum(detail => detail.Quantity * detail.UnitPrice))
+                    Revenue = group.Sum(order => order.OrderDetails.Sum(
+                        detail => detail.UnitPrice * detail.Quantity))
                 })
                 .OrderByDescending(dataitem => dataitem.Revenue)
                 .ToArray();
