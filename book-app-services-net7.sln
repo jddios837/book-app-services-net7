@@ -194,6 +194,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nothwind.BlazorLibraries.Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nothwind.BlazorLibraries.Shared", "Nothwind.BlazorLibraries\Shared\Nothwind.BlazorLibraries.Shared.csproj", "{B652CFAE-BD37-4200-8DA2-4965D1D966DC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter18", "Chapter18", "{22B65687-9C10-4793-AED8-F77DFDEFFACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightTests", "Chapter99\PlaywrightTests\PlaywrightTests.csproj", "{A1A15A35-2FE8-432A-9791-B4238581A522}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -504,6 +508,10 @@ Global
 		{B652CFAE-BD37-4200-8DA2-4965D1D966DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B652CFAE-BD37-4200-8DA2-4965D1D966DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B652CFAE-BD37-4200-8DA2-4965D1D966DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1A15A35-2FE8-432A-9791-B4238581A522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1A15A35-2FE8-432A-9791-B4238581A522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1A15A35-2FE8-432A-9791-B4238581A522}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1A15A35-2FE8-432A-9791-B4238581A522}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -585,5 +593,6 @@ Global
 		{DE7E6EAF-1E1C-4DCF-9F9B-B65C26D50A28} = {D5094A26-824A-4721-A60C-D84B46F77260}
 		{76A628B9-0D20-40DF-A7EE-B1C5ED6F5146} = {D5094A26-824A-4721-A60C-D84B46F77260}
 		{B652CFAE-BD37-4200-8DA2-4965D1D966DC} = {D5094A26-824A-4721-A60C-D84B46F77260}
+		{A1A15A35-2FE8-432A-9791-B4238581A522} = {645A1C53-D62B-4918-99A4-A856ECB90FAE}
 	EndGlobalSection
 EndGlobal
