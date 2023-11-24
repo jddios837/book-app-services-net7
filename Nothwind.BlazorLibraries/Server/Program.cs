@@ -63,11 +63,11 @@ app.MapGet("api/countries/", (
     .WithName("GetCountries")
     .Produces<string[]>();
 
-app.MapGet("app/cities/", (
-            [FromServices] NorthwindContext db) =>
-        Results.Json(db.Employees.Select(emp => emp.City).Distinct()))
+app.MapGet("api/cities/", (
+    [FromServices] NorthwindContext db) => 
+    Results.Json(db.Employees.Select(emp => emp.City).Distinct()))
     .WithName("GetCities")
-    .Produces<string>();
+    .Produces<string[]>();
 
 app.MapPut("api/employees/{id:int}", async (
     [FromRoute] int id,
