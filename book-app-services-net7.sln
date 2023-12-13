@@ -200,6 +200,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightTests", "Chapter9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Maui.Client", "Chapter18\Northwind.Maui.Client\Northwind.Maui.Client.csproj", "{24D506F2-13F1-4D93-A9C2-7E8ADAD9B2C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Maui.Client", "Chapter99\Firebase.Maui.Client\Firebase.Maui.Client.csproj", "{5AEF6AC6-3F21-489A-A4C8-CC8E52B12CFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -518,6 +520,10 @@ Global
 		{24D506F2-13F1-4D93-A9C2-7E8ADAD9B2C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24D506F2-13F1-4D93-A9C2-7E8ADAD9B2C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24D506F2-13F1-4D93-A9C2-7E8ADAD9B2C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AEF6AC6-3F21-489A-A4C8-CC8E52B12CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AEF6AC6-3F21-489A-A4C8-CC8E52B12CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AEF6AC6-3F21-489A-A4C8-CC8E52B12CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AEF6AC6-3F21-489A-A4C8-CC8E52B12CFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -601,5 +607,6 @@ Global
 		{B652CFAE-BD37-4200-8DA2-4965D1D966DC} = {D5094A26-824A-4721-A60C-D84B46F77260}
 		{A1A15A35-2FE8-432A-9791-B4238581A522} = {645A1C53-D62B-4918-99A4-A856ECB90FAE}
 		{24D506F2-13F1-4D93-A9C2-7E8ADAD9B2C0} = {22B65687-9C10-4793-AED8-F77DFDEFFACD}
+		{5AEF6AC6-3F21-489A-A4C8-CC8E52B12CFF} = {645A1C53-D62B-4918-99A4-A856ECB90FAE}
 	EndGlobalSection
 EndGlobal
