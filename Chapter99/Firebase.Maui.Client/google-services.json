@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "406725025004",
+    "firebase_url": "https://dotnet-maui-android-firebase-default-rtdb.firebaseio.com",
+    "project_id": "dotnet-maui-android-firebase",
+    "storage_bucket": "dotnet-maui-android-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406725025004:android:dc800386e67a62787c19c9",
+        "android_client_info": {
+          "package_name": "com.jddios.firebase.maui.client"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe0uulNw4umddscOlA1ek8MnvGPexilxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

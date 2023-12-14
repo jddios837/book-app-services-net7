@@ -2,6 +2,7 @@
 using Firebase.Database;
 using Firebase.Database.Query;
 using Firebase.Maui.Client.Models;
+using Plugin.Firebase.CloudMessaging;
 
 namespace Firebase.Maui.Client;
 
@@ -30,13 +31,17 @@ public partial class MainPage : ContentPage
             });
     }
 
-    private void OnCounterClicked(object sender, EventArgs e)
+    private async void OnCounterClicked(object sender, EventArgs e)
     {
-        _firebaseClient.Child("Todo")
-            .PostAsync(new TodoItem
-            {
-                Title = TitleEntry.Text
-            });
+        // _firebaseClient.Child("Todo")
+        //     .PostAsync(new TodoItem
+        //     {
+        //         Title = TitleEntry.Text
+        //     });
+        
+        await CrossFirebaseCloudMessaging.Current.CheckIfValidAsync();
+        var token = await CrossFirebaseCloudMessaging.Current.GetTokenAsync();
+        Console.WriteLine($"FCM token: {token}");
         // count++;
         //
         // if (count == 1)

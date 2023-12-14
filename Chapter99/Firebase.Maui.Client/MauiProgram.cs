@@ -1,5 +1,12 @@
-﻿using Microsoft.Extensions.Logging;
-
+﻿using Microsoft.Maui.LifecycleEvents;
+using Plugin.Firebase.Auth;
+using Plugin.Firebase.Bundled.Shared;
+using Plugin.Firebase.Crashlytics;
+#if IOS
+using Plugin.Firebase.Bundled.Platforms.iOS;
+#else
+using Plugin.Firebase.Bundled.Platforms.Android;
+#endif
 namespace Firebase.Maui.Client;
 
 public static class MauiProgram
@@ -20,5 +27,26 @@ public static class MauiProgram
 #endif
 
         return builder.Build();
+    }
+    
+    private static MauiAppBuilder RegisterFirebaseServices(this MauiAppBuilder builder)
+    {
+        builder.ConfigureLifecycleEvents(events => {
+            events.AddAndroid(android => android.OnCreate((activity, _) =>
+                CrossFirebase.Initialize(activity, CreateCrossFirebaseSettings())));
+            
+            CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
+        });
+
+        builder.Services.AddSingleton(_ => CrossFirebaseAuth.Current);
+        return builder;
+    }
+
+    private static CrossFirebaseSettings CreateCrossFirebaseSettings()
+    {
+        return new CrossFirebaseSettings(
+            isAuthEnabled: true,
+            isCloudMessagingEnabled: true,
+            isAnalyticsEnabled: true);
     }
 }
