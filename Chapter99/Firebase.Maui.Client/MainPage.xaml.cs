@@ -41,6 +41,7 @@ public partial class MainPage : ContentPage
         
         await CrossFirebaseCloudMessaging.Current.CheckIfValidAsync();
         var token = await CrossFirebaseCloudMessaging.Current.GetTokenAsync();
+        TitleEntry.Text = token;
         Console.WriteLine($"FCM token: {token}");
         // count++;
         //

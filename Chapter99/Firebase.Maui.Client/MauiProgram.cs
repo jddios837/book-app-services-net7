@@ -2,11 +2,8 @@
 using Plugin.Firebase.Auth;
 using Plugin.Firebase.Bundled.Shared;
 using Plugin.Firebase.Crashlytics;
-#if IOS
-using Plugin.Firebase.Bundled.Platforms.iOS;
-#else
 using Plugin.Firebase.Bundled.Platforms.Android;
-#endif
+
 namespace Firebase.Maui.Client;
 
 public static class MauiProgram
@@ -16,6 +13,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .RegisterFirebaseServices()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -34,8 +32,7 @@ public static class MauiProgram
         builder.ConfigureLifecycleEvents(events => {
             events.AddAndroid(android => android.OnCreate((activity, _) =>
                 CrossFirebase.Initialize(activity, CreateCrossFirebaseSettings())));
-            
-            CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
+                CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
         });
 
         builder.Services.AddSingleton(_ => CrossFirebaseAuth.Current);

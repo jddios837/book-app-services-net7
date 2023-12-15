@@ -13,7 +13,7 @@
 				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 				<category android:name="${applicationId}" />
 			</intent-filter>
-		</receiver>
+		</receiver>	
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
