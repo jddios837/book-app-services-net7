@@ -12,4 +12,9 @@ public partial class CategoriesPage : ContentPage
     {
         InitializeComponent();
     }
+
+    private void ClickMeButton_OnClicked(object? sender, EventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }
