@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Northwind.Maui.Client.ViewModels;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 
 namespace Northwind.Maui.Client;
 
@@ -14,7 +16,47 @@ public partial class CustomersPage : ContentPage
         InitializeComponent();
         
         CustomersListViewModel viewModel = new();
-        viewModel.AddSampleData();
+
+        try
+        {
+            HttpClient client = new()
+            {
+                BaseAddress = new Uri(DeviceInfo.Platform == DevicePlatform.Android ?
+                    "http://10.0.2.2:5182" : "http://localhost:5182")
+            };
+            
+            InfoLabel.Text = $"BaseAddress: {client.BaseAddress}";
+            
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            
+            HttpResponseMessage response = client
+                .GetAsync("api/customers").Result;
+            
+            response.EnsureSuccessStatusCode();
+            
+            IEnumerable<CustomerDetailViewModel> customersFromService =
+                response
+                    .Content
+                    .ReadFromJsonAsync<IEnumerable<CustomerDetailViewModel>>()
+                    .Result;
+
+            foreach (CustomerDetailViewModel c in customersFromService
+                         .OrderBy(customer => customer.CompanyName))
+            {
+                viewModel.Add(c);
+            }
+
+            InfoLabel.Text += $"\n{viewModel.Count} customers loaded.";
+        }
+        catch (Exception e)
+        {
+            ErrorLabel.Text = e.Message + "\nUsing sample data instead.";
+            ErrorLabel.IsVisible = true;
+            
+            viewModel.AddSampleData();
+        }
+
         BindingContext = viewModel;
     }
 
