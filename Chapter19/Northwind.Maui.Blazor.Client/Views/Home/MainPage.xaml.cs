@@ -1,4 +1,4 @@
-﻿namespace Northwind.Maui.Blazor.Client;
+﻿namespace Northwind.Maui.Blazor.Client.Views;
 
 public partial class MainPage : ContentPage
 {
