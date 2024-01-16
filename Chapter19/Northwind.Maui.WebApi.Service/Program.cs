@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddNorthwindContext();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -58,7 +60,7 @@ app.MapPut("api/categories/{id:int}", async (
 }).Produces(StatusCodes.Status404NotFound)
     .Produces(StatusCodes.Status204NoContent);
 
-app.MapDelete("api/categories/{id:int", async (
+app.MapDelete("api/categories/{id:int}", async (
     [FromRoute] int id,
     [FromServices] NorthwindContext db) =>
 {

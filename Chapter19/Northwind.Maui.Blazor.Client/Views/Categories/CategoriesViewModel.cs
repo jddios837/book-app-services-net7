@@ -19,7 +19,7 @@ internal partial class CategoriesViewModel : ObservableCollection<Category>
             {
                 BaseAddress = new Uri(
                     DeviceInfo.Platform == DevicePlatform.Android ?
-                        "http://10.0.2.2:5192" : "http://localhost:5192")
+                        "http://10.0.2.2:5183" : "http://localhost:5183")
             };
 
             InfoMessage = $"BaseAddress: {client.BaseAddress}. ";
