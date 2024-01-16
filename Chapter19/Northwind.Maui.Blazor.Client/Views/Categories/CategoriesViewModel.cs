@@ -15,12 +15,54 @@ internal partial class CategoriesViewModel : ObservableCollection<Category>
     {
         try
         {
+            HttpClient client = new()
+            {
+                BaseAddress = new Uri(
+                    DeviceInfo.Platform == DevicePlatform.Android ?
+                        "http://10.0.2.2:5192" : "http://localhost:5192")
+            };
 
+            InfoMessage = $"BaseAddress: {client.BaseAddress}. ";
+            
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            
+            HttpResponseMessage response = client
+                .GetAsync("api/categories").Result;
+
+            response.EnsureSuccessStatusCode();
+            
+            IEnumerable<Category> categories = response.Content
+                .ReadFromJsonAsync<IEnumerable<Category>>().Result;
+
+            foreach (Category category in categories)
+            {
+                int offset = 78;
+                
+                category.Picture = category.Picture.AsSpan(
+                    offset, category.Picture.Length - offset).ToArray();
+                
+                Add(category);
+            }
+
+            InfoMessage += $"{Count} categories loaded.";
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
-            throw;
+            ErrorMessage = ex.Message;
+            ErrorMessageVisible = true;
         }
+    }
+
+    [RelayCommand]
+    private void AddCategoryToFavorites()
+    {
+        Console.WriteLine("Add category to favorites.");
+    }
+
+    [RelayCommand]
+    private void DeleteCategory()
+    {
+        Console.WriteLine("Delete category.");
     }
 }
